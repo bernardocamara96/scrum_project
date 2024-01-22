@@ -1,0 +1,19 @@
+#login {
+   text-align: center;
+   margin-top: 250px;
+}
+
+#btnLogin {
+   margin-top: 10px;
+   font-size: 15px;
+   font-family: monospace;
+   font-weight: bold;
+   width: 6em;
+   height: 2em;
+}
+
+.lblLogin {
+   font-size: 15px;
+   font-weight: bold;
+   font-family: monospace;
+}
