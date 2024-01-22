@@ -1,6 +1,13 @@
 #login {
+   position: absolute;
    text-align: center;
-   margin-top: 250px;
+   top: 32%;
+   left: 43%;
+   background-image: url("postit.png");
+   padding-left: 27px;
+   padding-right: 20px;
+   padding-top: 60px;
+   padding-bottom: 10px;
 }
 
 #btnLogin {
@@ -16,4 +23,10 @@
    font-size: 15px;
    font-weight: bold;
    font-family: monospace;
+}
+
+header {
+   text-align: center;
+   margin-top: 60px;
+   font-size: 25px;
 }
