@@ -1,8 +1,11 @@
 body {
    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-   color: #fff; /* Text color on the background */
+   color: #fff;
    text-align: center;
-   margin: 0; /* Remove default body margin */
+   margin: 0;
+   background-image: linear-gradient(45deg, black, rgb(0, 27, 95), rgb(149, 154, 0));
+   background-repeat: no-repeat;
+   padding-bottom: 150px;
 }
 
 .login_container {
@@ -15,7 +18,7 @@ body {
 }
 
 .login_container h2 {
-   color: #3498db;
+   color: rgb(0, 27, 95);
 }
 
 .login_form {
@@ -42,7 +45,7 @@ body {
 }
 
 .form_group button {
-   background-color: #3498db;
+   background-image: linear-gradient(45deg, black, rgb(0, 27, 95), rgb(149, 154, 0));
    color: #fff;
    padding: 12px;
    border: none;
@@ -50,8 +53,16 @@ body {
    cursor: pointer;
    font-size: 16px;
    transition: background-color 0.3s;
+   width: 100%;
 }
 
 .form_group button:hover {
    background-color: #2980b9;
+}
+
+footer {
+   position: absolute;
+   bottom: 0px;
+   background-color: black;
+   width: 100%;
 }
