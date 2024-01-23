@@ -5,7 +5,7 @@ body {
    margin: 0; /* Remove default body margin */
 }
 
-.login-container {
+.login_container {
    width: 300px;
    margin: 100px auto;
    background-color: #ffffff;
@@ -14,26 +14,26 @@ body {
    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
 }
 
-.login-container h2 {
+.login_container h2 {
    color: #3498db;
 }
 
-.login-form {
+.login_form {
    margin-top: 20px;
 }
 
-.form-group {
+.form_group {
    margin-bottom: 20px;
 }
 
-.form-group label {
+.form_group label {
    display: block;
    font-weight: bold;
    margin-bottom: 5px;
    color: #555;
 }
 
-.form-group input {
+.form_group input {
    width: 100%;
    padding: 10px;
    border: 1px solid #ccc;
@@ -41,7 +41,7 @@ body {
    box-sizing: border-box;
 }
 
-.form-group button {
+.form_group button {
    background-color: #3498db;
    color: #fff;
    padding: 12px;
@@ -52,6 +52,6 @@ body {
    transition: background-color 0.3s;
 }
 
-.form-group button:hover {
+.form_group button:hover {
    background-color: #2980b9;
 }
