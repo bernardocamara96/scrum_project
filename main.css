@@ -1,71 +1,57 @@
-#btnLogin {
-   margin-top: 10px;
-   font-size: 15px;
-   font-family: monospace;
-   font-weight: bold;
-   width: 6em;
-   height: 2em;
-}
-
-.lblLogin {
-   font-size: 18px;
-   font-weight: bold;
-   font-family: monospace;
-}
-
-header {
-   text-align: center;
-   margin-top: 60px;
-   font-size: 25px;
-   background-color: rgb(255, 217, 0);
-   margin-left: 570px;
-   margin-right: 570px;
-   border-radius: 40px;
-}
-
-.user_pass {
-   height: 2em;
-}
-
-footer {
-   position: absolute;
-   bottom: 0px;
-   background-color: black;
-   color: white;
-   width: 100%;
-}
-
-#foot {
-   text-align: center;
-}
-
 body {
-   margin-left: -10px;
-   background-image: url("1698177936255.jpeg");
-   background-size: cover;
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   color: #fff; /* Text color on the background */
+   text-align: center;
+   margin: 0; /* Remove default body margin */
 }
 
-#form {
-   background-color: rgb(255, 217, 0);
-   position: absolute;
-   height: 25%;
-   width: 14%;
-   border-radius: 10%;
-   padding: 40px;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
-   opacity: 0.6;
-}
-
-#login {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   background-color: rgba(252, 235, 4, 0.692);
-   border: solid black;
-   border-width: 3px;
+.login-container {
+   width: 300px;
+   margin: 100px auto;
+   background-color: #ffffff;
    padding: 20px;
-   border-radius: 10px;
+   border-radius: 8px;
+   box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+   color: #3498db;
+}
+
+.login-form {
+   margin-top: 20px;
+}
+
+.form-group {
+   margin-bottom: 20px;
+}
+
+.form-group label {
+   display: block;
+   font-weight: bold;
+   margin-bottom: 5px;
+   color: #555;
+}
+
+.form-group input {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+}
+
+.form-group button {
+   background-color: #3498db;
+   color: #fff;
+   padding: 12px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+   background-color: #2980b9;
 }
