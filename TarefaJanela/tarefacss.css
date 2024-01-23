@@ -4,9 +4,16 @@
 }
 
 @font-face {
-    font-family: reenieBeanie;
-    src: url(ReenieBeanie-Regular.ttf);
+    font-family: badscript;
+    src: url(BadScript-Regular.ttf);
 }
+
+@font-face {
+    font-family: indieFlower;
+    src: url(IndieFlower-Regular.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 
 *{
     margin: 0;
@@ -58,7 +65,7 @@ main {
 
 .descricaoTarefa h2 {
     color: #000;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: indieFlower;
     font-weight: bold;
     font-size: 2rem;
     margin-bottom: 10px;
@@ -66,8 +73,8 @@ main {
 
 .descricaoTarefa p {
     color: #000;
-    font-family: reenieBeanie;
-    font-size: 2rem;
+    font-family: indieFlower;
+    font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 20px;
 }
