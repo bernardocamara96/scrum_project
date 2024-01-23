@@ -1,15 +1,3 @@
-#login {
-   position: absolute;
-   text-align: center;
-   top: 32%;
-   left: 43%;
-   background-image: url("postit.png");
-   padding-left: 27px;
-   padding-right: 20px;
-   padding-top: 60px;
-   padding-bottom: 10px;
-}
-
 #btnLogin {
    margin-top: 10px;
    font-size: 15px;
@@ -20,7 +8,7 @@
 }
 
 .lblLogin {
-   font-size: 15px;
+   font-size: 18px;
    font-weight: bold;
    font-family: monospace;
 }
@@ -29,4 +17,55 @@ header {
    text-align: center;
    margin-top: 60px;
    font-size: 25px;
+   background-color: rgb(255, 217, 0);
+   margin-left: 570px;
+   margin-right: 570px;
+   border-radius: 40px;
+}
+
+.user_pass {
+   height: 2em;
+}
+
+footer {
+   position: absolute;
+   bottom: 0px;
+   background-color: black;
+   color: white;
+   width: 100%;
+}
+
+#foot {
+   text-align: center;
+}
+
+body {
+   margin-left: -10px;
+   background-image: url("1698177936255.jpeg");
+   background-size: cover;
+}
+
+#form {
+   background-color: rgb(255, 217, 0);
+   position: absolute;
+   height: 25%;
+   width: 14%;
+   border-radius: 10%;
+   padding: 40px;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   opacity: 0.6;
+}
+
+#login {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: rgba(252, 235, 4, 0.692);
+   border: solid black;
+   border-width: 3px;
+   padding: 20px;
+   border-radius: 10px;
 }
