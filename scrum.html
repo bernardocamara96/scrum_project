@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Scrum Board</title>
+      <link rel="stylesheet" href="main.css" />
+   </head>
+   <body>
+      <header><h1>Scrum Board</h1></header>
+      <main id="scrum_main">
+         <section id="scrum_board">
+            <aside id="menu">
+               <div id="div_logout">
+                  <button id="logout">Logout</button>
+                  <p id="user">Username</p>
+               </div>
+            </aside>
+            <div class="column" id="column1">
+               <div class="title">To Do</div>
+               <section class="task_list">
+                  <div class="task">Task 1</div>
+                  <div class="task">Task 2</div>
+               </section>
+               <button id="btn_task">+ New Task</button>
+            </div>
+            <div class="column" id="column2">
+               <div class="title">Doing</div>
+               <section class="task_list"></section>
+            </div>
+            <div class="column" id="column3">
+               <div class="title">Done</div>
+               <section class="task_list"></section>
+            </div>
+         </section>
+      </main>
+
+      <footer>
+         <div>
+            <p>© Acertar o Rumo 2024</p>
+         </div>
+      </footer>
+   </body>
+
+   <script src="scrum_code.js"></script>
+</html>
