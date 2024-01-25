@@ -94,7 +94,7 @@ footer p {
    margin-top: 8px;
 }
 
-#scrum_board {
+#scrum_section {
    display: flex;
    margin-bottom: 0px;
 }
@@ -158,12 +158,14 @@ footer p {
 
 .task:hover {
    box-shadow: 0 0 1px 3px #091e4240;
+   cursor: pointer;
 }
 
 .task_list {
    display: flex;
    flex-direction: column;
    height: 376.5px;
+   /*overflow-y: scroll;*/
 }
 
 #btn_task {
@@ -197,5 +199,9 @@ footer p {
 
 #div_logout {
    margin-top: 50px;
+   margin-left: 50px;
+}
+
+#btn_sprint {
    margin-left: 50px;
 }
