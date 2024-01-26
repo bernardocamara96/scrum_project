@@ -1,20 +1,3 @@
-@font-face {
-   font-family: chalkBoardFont;
-   src: url(DkCrayonCrumble-ddll.ttf);
-}
-
-@font-face {
-   font-family: badscript;
-   src: url(BadScript-Regular.ttf);
-}
-
-@font-face {
-   font-family: indieFlower;
-   src: url(IndieFlower-Regular.ttf);
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
-
 * {
    margin: 0;
    padding: 0;
