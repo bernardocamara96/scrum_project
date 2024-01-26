@@ -45,23 +45,22 @@ header {
 }
 
 .descricaoTarefa {
-   margin: 25px auto;
-   background: #ffae36;
+   margin: 15px auto;
+   background-color: #e6e6e6;
    color: #fff;
-   border: 1px solid #dddddd;
-   border-radius: 5px;
+   border-radius: 12px;
    height: 23em;
    width: 23em;
    padding: 1em;
-   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
-   transform: rotate(-2deg);
-   overflow-y: auto;
+   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.descricaoTarefa input {
+   margin-top: 1em;
 }
 
 .descricaoTarefa:hover,
 .descricaoTarefa:focus {
-   box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
-   transform: scale(1.1);
    position: relative;
 }
 
@@ -97,7 +96,7 @@ button {
    text-decoration: none;
    display: inline-block;
    font-size: 16px;
-   margin: 4px 2px;
+   margin-top: 30px;
    transition-duration: 0.4s;
    border-radius: 5px;
 }
@@ -145,7 +144,7 @@ footer p {
 form {
    background-color: #fff;
    border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.5);
    padding: 20px;
    width: 400px;
 }
@@ -166,8 +165,11 @@ textarea {
 
 #members {
    margin-bottom: 8px;
+   resize: none;
 }
-
+textarea {
+   resize: none;
+}
 #addComment {
    margin-bottom: 14px;
 }

@@ -96,7 +96,6 @@ footer p {
 
 #scrum_section {
    display: flex;
-   margin-bottom: 0px;
 }
 
 .column {
@@ -104,20 +103,20 @@ footer p {
    margin-right: 10px;
    margin-left: 10px;
    width: 300px;
-   height: 450px;
+   height: 476.5px;
    border: solid;
    border-color: #e6e6e6;
    background-color: #e6e6e6;
    border-radius: 12px;
    border-width: 2px;
    padding-top: 12px;
-   margin-top: 30px;
+   margin-top: 55px;
 }
 
 .column:hover {
    border-color: rgb(203, 203, 203);
    padding-top: 12px;
-   box-shadow: 0 0 2px 2px rgb(203, 203, 203, 0.5);
+   box-shadow: 0 0 2px 1px rgb(203, 203, 203, 0.5);
 }
 
 #column1 {
@@ -142,30 +141,50 @@ footer p {
    padding-bottom: 5px;
    padding-bottom: 1px;
    font-size: 20px;
-   margin-top: 8px;
-   margin-bottom: 8px;
+   margin-top: 6px;
+   margin-bottom: 6px;
    box-shadow: 0 0 1px 1px #091e4240;
    margin-left: 18px;
    margin-right: 18px;
    text-align: center;
    padding-top: 5px;
    padding-bottom: 5px;
-   border-radius: 10px;
+   border-radius: 8px;
    font-size: 14px;
    background-color: white;
    color: #202124;
 }
 
 .task:hover {
-   box-shadow: 0 0 1px 3px #091e4240;
    cursor: pointer;
+   box-shadow: 0 0 1px 3px #091e4240;
+}
+
+.drag {
+   background-color: #bebebe;
+   color: #bebebe;
 }
 
 .task_list {
    display: flex;
    flex-direction: column;
-   height: 376.5px;
-   /*overflow-y: scroll;*/
+   height: 404px;
+   overflow: auto;
+}
+
+.task_list::-webkit-scrollbar {
+   width: 8px;
+}
+
+.task_list::-webkit-scrollbar-thumb {
+   background-color: rgb(195, 195, 195);
+   border-radius: 10px;
+}
+
+.task_list::-webkit-scrollbar-track {
+   border-radius: 10px;
+   background-color: rgb(218, 218, 218);
+   margin-top: 5px;
 }
 
 #btn_task {
@@ -174,7 +193,7 @@ footer p {
    text-align: left;
    padding-left: 20px;
    font-size: 15px;
-   padding-top: 5px;
+   padding-top: 3px;
    border-bottom-right-radius: 10px;
    border-bottom-left-radius: 10px;
    background-color: #e6e6e6;
