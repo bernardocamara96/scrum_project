@@ -13,19 +13,15 @@
          <h6 id="username">username</h6>
       </header>
 
-      <!-- Edição da tarefa no tipo post-it -->
       <main class="taskMain">
          <div class="descricaoTarefa">
-            <h2 contenteditable="true">Tarefa</h2>
-            <div contenteditable="true">
-               <p>-Preço 0.99€</p>
-               <p>-Parágrafo 2</p>
-            </div>
+            <input type="text" placeholder="Task Title" />
+            <textarea cols="30" rows="18" placeholder="Task Description"></textarea>
          </div>
 
          <div class="buttons">
-            <button id="task_save">Save</button>
             <button id="task_delete">Delete</button>
+            <button id="task_save">Save</button>
          </div>
       </main>
 
