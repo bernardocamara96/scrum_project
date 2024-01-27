@@ -49,9 +49,9 @@ for (let taskList of taskLists) {
 function taskCreationAddEvents(task_div) {
    task_div.addEventListener("dblclick", function () {
       for (let i = 0; i < tasks.length; i++) {
-         if ((tasks[i].title = task_div.textContent)) {
+         if (tasks[i].title == task_div.textContent) {
+            localStorage.setItem("task_index", i);
             localStorage.setItem("task_object", JSON.stringify(tasks[i]));
-
             setTimeout(() => {
                i = tasks.length;
             }, 0);
