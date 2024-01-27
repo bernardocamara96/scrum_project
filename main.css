@@ -3,37 +3,40 @@
    margin: 0;
 }
 
-header {
-   text-align: center;
-   font-size: 20px;
+/*header {
+   text-align: left;
+   font-size: 15px;
    font-weight: bold;
    padding-bottom: 20px;
-   background: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
    padding-top: 20px;
    padding-bottom: 20px;
+   padding-left: 20px;
    color: white;
+   background: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
 }
-
+*/
 #login_body {
-   background-image: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
-   background-repeat: no-repeat;
-   padding-bottom: 178px;
+   height: 565px;
 }
 
 .login_container {
-   text-align: center;
-   width: 300px;
+   text-align: left;
+   width: 280px;
    margin: 120px auto;
-   background-color: #ffffff;
+   background-color: #565656;
    padding: 20px;
    border-radius: 8px;
-   box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.4);
+   box-shadow: -50px 0px 30px 30px rgba(0, 0, 0, 0.4);
+   color: white;
+   margin-top: 160px;
+   margin-bottom: 264.2px;
+   color: rgb(238, 238, 238);
 }
 
 .login_container h2 {
-   color: rgb(0, 27, 95);
-   text-align: center;
+   text-align: left;
    margin-bottom: 10px;
+   font-weight: 400;
 }
 
 .login_form {
@@ -44,28 +47,34 @@ header {
    margin-bottom: 20px;
 }
 
-.form_group label {
-   font-weight: bold;
-   color: #555;
-}
-
 .form_group input {
    width: 100%;
    padding: 10px;
-   border: 1px solid #ccc;
    border-radius: 5px;
+   border: 0px;
+   background-color: #848484;
    box-sizing: border-box;
+   color: rgb(238, 238, 238);
 }
 
+.form_group input::placeholder {
+   color: rgb(238, 238, 238);
+}
+
+.form_group input:focus {
+   outline: none;
+}
 .form_group button {
-   background-image: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
+   background-color: #565656;
+   border: solid;
+   border-color: #868686;
+   color: 868686;
    color: #fff;
-   padding: 12px;
-   border: none;
+   padding: 8px;
    border-radius: 5px;
    font-size: 16px;
    width: 100%;
-   opacity: 0.9;
+   opacity: 0.7;
 }
 
 .form_group button:hover {
@@ -80,22 +89,30 @@ header {
    margin-top: 5px;
 }
 footer {
-   position: fixed;
-   bottom: 0px;
-   background-color: rgb(0, 0, 0, 0.65);
-   width: 100%;
-   text-align: center;
-   left: 0;
-   height: 45px;
+   background-color: #84848400;
+   width: 98.07%;
+   text-align: right;
+   padding-right: 30px;
+   margin-right: 30px;
+   height: 30px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   margin-top: 0px;
+   font-size: 13px;
 }
 
 footer p {
-   color: white;
+   color: rgb(0, 0, 0);
    margin-top: 8px;
 }
 
+body {
+   background-image: linear-gradient(90deg, #121212 20%, grey, white);
+}
 #scrum_section {
    display: flex;
+
+   padding-bottom: 116.1px;
 }
 
 .column {
@@ -103,24 +120,17 @@ footer p {
    margin-right: 10px;
    margin-left: 10px;
    width: 300px;
-   height: 476.5px;
-   border: solid;
-   border-color: #e6e6e6;
+   height: 489px;
    background-color: #e6e6e6;
    border-radius: 12px;
    border-width: 2px;
    padding-top: 12px;
-   margin-top: 55px;
-}
-
-.column:hover {
-   border-color: rgb(203, 203, 203);
-   padding-top: 12px;
-   box-shadow: 0 0 2px 1px rgb(203, 203, 203, 0.5);
+   margin-top: 80px;
+   box-shadow: -10px 0 5px 0px rgba(0, 0, 0, 1);
 }
 
 #column1 {
-   margin-left: 100px;
+   margin-left: 430px;
 }
 
 .title {
@@ -143,13 +153,13 @@ footer p {
    font-size: 20px;
    margin-top: 6px;
    margin-bottom: 6px;
-   box-shadow: 0 0 1px 1px #091e4240;
+   box-shadow: 0 0 2px 0px black;
    margin-left: 18px;
    margin-right: 18px;
    text-align: center;
    padding-top: 5px;
    padding-bottom: 5px;
-   border-radius: 8px;
+   border-radius: 5px;
    font-size: 14px;
    background-color: white;
    color: #202124;
@@ -157,7 +167,7 @@ footer p {
 
 .task:hover {
    cursor: pointer;
-   box-shadow: 0 0 1px 3px #091e4240;
+   box-shadow: 0 0 2px 1px black;
 }
 
 .drag {
@@ -168,7 +178,7 @@ footer p {
 .task_list {
    display: flex;
    flex-direction: column;
-   height: 404px;
+   height: 404.5px;
    overflow: auto;
 }
 
@@ -188,14 +198,16 @@ footer p {
 }
 
 #btn_task {
-   width: 300px;
+   width: 280px;
    border: none;
    text-align: left;
-   padding-left: 20px;
+   padding-left: 5px;
    font-size: 15px;
    padding-top: 3px;
-   border-bottom-right-radius: 10px;
-   border-bottom-left-radius: 10px;
+   margin-bottom: 5px;
+   border-radius: 5px;
+   margin-left: 10px;
+
    background-color: #e6e6e6;
 }
 #btn_task:hover {
@@ -209,18 +221,52 @@ footer p {
    cursor: pointer;
 }
 
-#menu {
+aside {
+   position: fixed;
    flex-shrink: 0;
    width: 270px;
-   border: red solid;
-   height: 595px;
+   background-color: #121212;
+   height: 750px;
+   z-index: 1;
 }
 
-#div_logout {
-   margin-top: 50px;
-   margin-left: 50px;
+#menu {
+   display: flex;
+   flex-direction: column;
+   margin-top: 5px;
+   margin-left: 8px;
+   margin-right: 50px;
 }
 
+#menu button:hover {
+   background-color: #565656;
+   cursor: pointer;
+}
+
+#menu button:active {
+   background-color: #848484;
+}
+#menu h1 {
+   margin-bottom: 17px;
+   font-size: 28px;
+   border-bottom: solid;
+   border-color: #848484;
+}
 #btn_sprint {
-   margin-left: 50px;
+   margin-top: 80px;
+}
+
+#menu button {
+   border-radius: 5px;
+}
+.menu_item {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-align: left;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   color: rgb(244, 244, 244);
+   background-color: #121212;
+   border: transparent;
+   padding-left: 20px;
 }

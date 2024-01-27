@@ -10,10 +10,17 @@ function printTasks(tasks) {
    for (let i = 0; i < tasks.length; i++) {
       const task_div = document.createElement("div");
       task_div.textContent = tasks[i].title;
+      task_div.id = tasks[i].id;
       task_div.classList.add("task");
       taskCreationAddEvents(task_div);
       task_div.setAttribute("draggable", "true");
-      document.querySelector("#list1").appendChild(task_div);
+      if (tasks[i].column == "list1") {
+         document.querySelector("#list1").appendChild(task_div);
+      } else if (tasks[i].column == "list2") {
+         document.querySelector("#list2").appendChild(task_div);
+      } else if (tasks[i].column == "list3") {
+         document.querySelector("#list3").appendChild(task_div);
+      }
    }
 }
 
@@ -43,13 +50,23 @@ for (let taskList of taskLists) {
       e.preventDefault();
       const draggable = document.querySelector(".drag");
       taskList.appendChild(draggable);
+
+      for (let task of tasks) {
+         if (draggable.id == task.id) {
+            task.column = this.id;
+         }
+      }
    });
 }
+
+window.addEventListener("beforeunload", function () {
+   localStorage.setItem("tasks", JSON.stringify(tasks));
+});
 
 function taskCreationAddEvents(task_div) {
    task_div.addEventListener("dblclick", function () {
       for (let i = 0; i < tasks.length; i++) {
-         if (tasks[i].title == task_div.textContent) {
+         if (tasks[i].id == task_div.id) {
             localStorage.setItem("task_index", i);
             localStorage.setItem("task_object", JSON.stringify(tasks[i]));
             setTimeout(() => {

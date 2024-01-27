@@ -4,18 +4,25 @@ const tasks = JSON.parse(localStorage.getItem("tasks"));
 const task = JSON.parse(localStorage.getItem("task_object"));
 const index = localStorage.getItem("task_index");
 
+console.log(tasks);
+
 document.querySelector("#username").textContent = localStorage.getItem("username");
 
 if (task.title != "") {
    title_txt.value = task.title;
    description_txt.value = task.description;
+   document.querySelector("#task_delete").style.display = "inline-block";
+} else {
+   document.querySelector("#task_delete").style.display = "none";
 }
 
 document.querySelector("#task_save").addEventListener("click", function () {
    if (title_txt.value != "") {
       if (task.title == "") {
+         const data = new Date();
          const task = {
-            column: 1,
+            id: data.getTime(),
+            column: "list1",
             title: title_txt.value,
             description: description_txt.value,
          };
@@ -36,5 +43,9 @@ document.querySelector("#task_save").addEventListener("click", function () {
 document.querySelector("#task_delete").addEventListener("click", function () {
    tasks.splice(index, 1);
    localStorage.setItem("tasks", JSON.stringify(tasks));
+   window.location.href = "scrum.html";
+});
+
+document.querySelector("#cancel").addEventListener("click", function () {
    window.location.href = "scrum.html";
 });
