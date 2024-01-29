@@ -7,6 +7,9 @@
       <link rel="stylesheet" href="main.css" />
    </head>
    <body>
+      <div id="background"></div>
+      <div class="body_color" id="scrum_color"></div>
+      <div class="aside_color"></div>
       <!--<header><h1>Scrum Board</h1></header> -->
       <main id="scrum_main">
          <header><h1>Scrum Board</h1></header>
@@ -16,11 +19,17 @@
                   <p class="menu_item" id="user">Username</p>
                   <button class="menu_item" id="logout">Logout</button>
                   <button class="menu_item" id="btn_sprint">+ New sprint</button>
+                  <button class="menu_item" id="btn_settings">&#9881; Settings</button>
                </div>
             </aside>
             <div class="column" id="column1">
                <div class="title">To Do</div>
-               <section class="task_list" id="list1"></section>
+               <section class="task_list" id="list1">
+                  <!--<div class="task">
+                     <div class="task_title">tasfdds</div>
+                     <button class="task_btn">&#9776;</button>
+                  </div>-->
+               </section>
                <button id="btn_task">+ New Task</button>
             </div>
             <div class="column" id="column2">
@@ -34,12 +43,44 @@
          </section>
       </main>
 
+      <section class="modal" id="modal">
+         <div>
+            <div id="modal_cancel">&times;</div>
+            <div class="label_modal">Title</div>
+            <div id="modal_title"></div>
+         </div>
+         <div>
+            <div class="label_modal">Description</div>
+            <div id="modal_description"></div>
+         </div>
+      </section>
+
+      <section class="modal" id="modal_settings">
+         <section id="settings_header">
+            <h2 id="title_settings">Colors</h2>
+            <button id="modal_cancel2">&times;</button>
+         </section>
+
+         <section id="main_settings">
+            <section id="settings_section">
+               <div class="colors"><span>Background</span><input type="color" id="background_color" /></div>
+               <div class="colors"><span>To Do</span><input type="color" id="toDo_color" /></div>
+               <div class="colors"><span>Doing</span><input type="color" id="doing_color" /></div>
+               <div class="colors"><span>Done</span><input type="color" id="done_color" /></div>
+            </section>
+            <section id="btns_settings">
+               <button id="apply" class="settings_buttons">Apply</button>
+               <button id="reset_settings" class="settings_buttons">Reset</button>
+               <button id="cancel_settings" class="settings_buttons">Cancel</button>
+            </section>
+         </section>
+      </section>
+
       <footer>
          <div>
             <p>© Acertar o Rumo 2024</p>
          </div>
       </footer>
    </body>
-
    <script src="scrum_code.js"></script>
 </html>

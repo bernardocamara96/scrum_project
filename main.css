@@ -3,41 +3,32 @@
    margin: 0;
 }
 
-/*header {
-   text-align: left;
-   font-size: 15px;
-   font-weight: bold;
-   padding-bottom: 20px;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   padding-left: 20px;
-   color: white;
-   background: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
-}
-*/
-
 header h1 {
-   color: rgb(245, 245, 245);
-   border-bottom: solid;
+   position: fixed;
+   color: rgb(14, 14, 14);
    padding-left: 20px;
    font-weight: 500;
    padding-top: 10px;
    width: 250px;
+   background-color: #d9d9d9;
    background-color: transparent;
 }
 
+#login_main {
+   margin-bottom: 416.5px;
+}
+
 .login_container {
+   position: relative;
+   transform: translate(0%, 60%);
+   margin: auto;
    text-align: left;
    width: 280px;
-   margin: 120px auto;
-   background-color: #505050;
+   background-color: #ffffff;
    padding: 20px;
    border-radius: 8px;
    box-shadow: -50px 0px 30px 30px rgba(0, 0, 0, 0.4);
-   color: white;
-   margin-top: 95px;
-   margin-bottom: 273px;
-   color: rgb(245, 245, 245);
+   color: rgb(14, 14, 14);
 }
 
 .login_container h2 {
@@ -59,34 +50,38 @@ header h1 {
    padding: 10px;
    border-radius: 5px;
    border: 0px;
-   background-color: #848484;
+   background-color: #e7e7e7;
    box-sizing: border-box;
-   color: white;
+   color: rgb(14, 14, 14);
 }
 
 .form_group input::placeholder {
-   color: rgb(245, 245, 245);
+   color: rgb(14, 14, 14);
 }
 
 .form_group input:focus {
    outline: none;
 }
 .form_group button {
-   background-color: #565656;
+   background-color: transparent;
    border: solid;
-   border-color: #868686;
-   color: 868686;
-   color: #fff;
+   border-width: 2px;
+
+   border-color: rgb(14, 14, 14);
+   cursor: pointer;
    padding: 8px;
    border-radius: 5px;
    font-size: 16px;
+   color: rgb(14, 14, 14);
    width: 100%;
-   opacity: 0.7;
 }
 
 .form_group button:hover {
-   opacity: 1;
-   cursor: pointer;
+   background-color: rgb(237, 237, 237);
+}
+
+.form_group button:active {
+   background-color: rgb(217, 217, 217);
 }
 
 #username {
@@ -96,29 +91,45 @@ header h1 {
    margin-top: 5px;
 }
 footer {
+   position: relative;
    background-color: #84848400;
-   width: 98.07%;
+   width: 100%;
    text-align: right;
-   padding-right: 30px;
-   margin-right: 30px;
+   bottom: 0;
    height: 30px;
    padding-top: 5px;
    padding-bottom: 5px;
-   margin-top: 0px;
    font-size: 13px;
 }
 
 footer p {
-   color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
    margin-top: 8px;
+   padding-right: 20px;
 }
 
-body {
-   background-image: linear-gradient(90deg, #121212 20%, grey, white);
+.body_color {
+   z-index: -10;
+   background-color: rgb(23, 43, 76);
+   position: fixed;
+   margin-top: 18px;
+   margin-left: 270px;
+   height: 100%;
+   width: 90%;
+   border-top-left-radius: 30px;
+   box-shadow: -2.5px -2.5px 2.5px 1px rgb(0, 0, 0);
+}
+
+.aside_color {
+   z-index: -11;
+   background-color: white;
+   height: 100%;
+   width: 100%;
+   position: fixed;
 }
 #scrum_section {
    display: flex;
-   padding-bottom: 102px;
+   padding-bottom: 110px;
 }
 
 .column {
@@ -127,16 +138,15 @@ body {
    margin-left: 10px;
    width: 300px;
    height: 489px;
-   background-color: #d9d9d9;
+   background-color: rgb(241, 242, 244);
    border-radius: 12px;
    border-width: 2px;
    padding-top: 12px;
-   margin-top: 35px;
-   box-shadow: -10px 0 5px 0px rgba(0, 0, 0, 1);
+   margin-top: 80px;
 }
 
 #column1 {
-   margin-left: 430px;
+   margin-left: 400px;
 }
 
 .title {
@@ -148,37 +158,67 @@ body {
    padding-right: 50px;
    margin-bottom: 20px;
    border-bottom: solid;
-   color: #202124;
+   color: rgb(14, 14, 14);
    font-weight: bold;
 }
 
 .task {
+   display: flex;
    padding-top: 5px;
    padding-bottom: 5px;
    padding-bottom: 1px;
    font-size: 20px;
    margin-top: 6px;
    margin-bottom: 6px;
-   box-shadow: 0 0 2px 0px black;
+   box-shadow: 0px 0.1px 1px 0.3px rgb(160, 160, 160);
    margin-left: 18px;
    margin-right: 18px;
-   text-align: center;
+   text-align: left;
    padding-top: 5px;
    padding-bottom: 5px;
-   border-radius: 5px;
+   border-radius: 10px;
    font-size: 14px;
-   background-color: white;
-   color: #202124;
+   background-color: #ffffff;
+   color: rgb(14, 14, 14);
+   border: solid;
+   border-width: 1.8px;
+   border-color: transparent;
 }
 
 .task:hover {
    cursor: pointer;
-   box-shadow: 0 0 2px 1px black;
+   box-shadow: 0px 0px 0.8px 0.3px rgb(160, 160, 160);
+   border-color: #252525;
 }
 
 .drag {
    background-color: #bebebe;
    color: #bebebe;
+}
+
+.task {
+   padding-bottom: 2px;
+}
+.task_title {
+   margin-left: 10px;
+   width: 215px;
+}
+
+.task_btn {
+   border-radius: 50%;
+   font-size: 14px;
+   border: none;
+   background-color: transparent;
+   margin-left: 10px;
+   margin-bottom: 2px;
+   width: 22px;
+   padding: 2px;
+   visibility: hidden;
+}
+
+.task_btn:hover {
+   background-color: #d9d9d9;
+   cursor: pointer;
 }
 
 .task_list {
@@ -214,48 +254,52 @@ body {
    border-radius: 5px;
    margin-left: 10px;
    padding-bottom: 3px;
-   background-color: #d9d9d9;
+   background-color: rgb(241, 242, 244);
 }
 #btn_task:hover {
-   background-color: rgb(168, 168, 168);
+   background-color: rgb(221, 221, 221);
    padding-bottom: 8px;
    cursor: pointer;
 }
 
 #btn_task:active {
-   background-color: rgb(135, 135, 135);
+   background-color: rgb(199, 199, 199);
 }
 
 aside {
    position: fixed;
+   margin-top: 55px;
    flex-shrink: 0;
    width: 270px;
-   background-color: transparent;
-   height: 750px;
+   background-color: rgb(217, 217, 217);
+   height: 755px;
    z-index: 1;
+   color: rgb(14, 14, 14);
+   background-color: transparent;
 }
 
+#user {
+   background-color: rgb(237, 237, 237);
+   border-radius: 5px;
+}
 #menu {
    display: flex;
    flex-direction: column;
    margin-top: 5px;
    margin-left: 8px;
-   margin-right: 65px;
 }
 
 #menu button:hover {
-   background-color: #565656;
+   background-color: rgb(237, 237, 237);
    cursor: pointer;
 }
 
 #menu button:active {
-   background-color: #848484;
+   background-color: rgb(217, 217, 217);
 }
 #menu h1 {
    margin-bottom: 17px;
    font-size: 28px;
-   border-bottom: solid;
-   border-color: #848484;
 }
 #btn_sprint {
    margin-top: 80px;
@@ -263,6 +307,7 @@ aside {
 
 #menu button {
    border-radius: 5px;
+   width: 96%;
 }
 .menu_item {
    margin-top: 5px;
@@ -270,8 +315,184 @@ aside {
    text-align: left;
    padding-top: 5px;
    padding-bottom: 5px;
-   color: rgb(244, 244, 244);
    background-color: transparent;
    border: transparent;
    padding-left: 20px;
+   width: 88%;
+}
+
+#background {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 8px;
+   visibility: hidden;
+   background-color: #1b1b1bae;
+   z-index: 2;
+}
+
+.modal {
+   position: fixed;
+   height: 380px;
+   width: 400px;
+   background-color: white;
+   z-index: 3;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 8px;
+   visibility: hidden;
+}
+
+#modal_cancel {
+   border-radius: 50%;
+   font-size: 17.5px;
+   font-weight: bold;
+   border: none;
+   background-color: transparent;
+   padding: 0px 0px 10px 0px;
+   height: 17px;
+   width: 25px;
+   margin: 5px 12px 0px 370px;
+   text-align: center;
+   cursor: pointer;
+}
+
+#modal_cancel:hover {
+   background-color: #c2c2c2;
+}
+
+#modal_cancel:active {
+   background-color: #a2a2a2;
+}
+
+.label_modal {
+   margin-top: 10px;
+   margin-bottom: 5px;
+   margin-left: 30px;
+   color: rgb(14, 14, 14);
+   font-weight: bold;
+}
+
+#modal_title {
+   background-color: transparent;
+   height: 30px;
+   margin: 0px 30px 10px 30px;
+   border-radius: 5px;
+   color: rgb(14, 14, 14);
+   padding-left: 7px;
+   padding-top: 3px;
+}
+
+#modal_description {
+   background-color: transparent;
+   height: 210px;
+   margin: 0px 30px 10px 30px;
+   overflow-y: auto;
+   border-radius: 5px;
+   color: rgb(14, 14, 14);
+   padding-left: 7px;
+   padding-top: 3px;
+}
+
+#modal_settings {
+   width: 390px;
+   height: 280px;
+}
+
+#main_settings {
+   display: flex;
+}
+#settings_section {
+   margin-left: 40px;
+   color: rgb(14, 14, 14);
+}
+#modal_cancel2 {
+   border-radius: 50%;
+   font-size: 17.5px;
+   font-weight: bold;
+   border: none;
+   background-color: transparent;
+   padding: 0px 9px 26px 6px;
+   height: 17px;
+   width: 25px;
+   margin: 5px 12px 0px 265px;
+   text-align: center;
+   cursor: pointer;
+}
+
+#modal_cancel2:hover {
+   background-color: #c2c2c2;
+}
+
+#modal_cancel2:active {
+   background-color: #a2a2a2;
+}
+
+#settings_header {
+   display: flex;
+   color: rgb(14, 14, 14);
+}
+#title_settings {
+   font-size: 26px;
+   font-weight: bolt;
+   margin-top: 18px;
+   margin-left: 18px;
+}
+.colors {
+   margin-top: 20px;
+   margin-left: 10px;
+}
+
+#background_color {
+   margin-left: 25px;
+}
+
+#aside_color {
+   margin-left: 70px;
+}
+
+#toDo_color {
+   margin-left: 68px;
+}
+
+#doing_color {
+   margin-left: 67px;
+}
+
+#done_color {
+   margin-left: 72px;
+}
+
+.settings_buttons {
+   margin-top: 15px;
+   margin-left: 20px;
+   border-radius: 5px;
+   background-color: transparent;
+   border: solid;
+   border-color: rgb(14, 14, 14);
+   color: rgb(14, 14, 14);
+   font-size: 16px;
+   border-width: 2px;
+   width: 100px;
+   padding-bottom: 7px;
+   cursor: pointer;
+}
+.settings_buttons:hover {
+   background-color: rgb(237, 237, 237);
+}
+
+.settings_buttons:active {
+   background-color: rgb(217, 217, 217);
+}
+
+#btns_settings {
+   display: flex;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top: 15px;
+   flex-direction: column;
 }
