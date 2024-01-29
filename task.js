@@ -5,6 +5,8 @@ const tasks = JSON.parse(localStorage.getItem("tasks"));
 const task = JSON.parse(localStorage.getItem("task_object"));
 const index = localStorage.getItem("task_index");
 
+document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
+
 console.log(tasks);
 
 document.querySelector("#username").textContent = localStorage.getItem("username");

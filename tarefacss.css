@@ -1,16 +1,20 @@
 * {
+   font-family: "Segoe UI", Verdana, sans-serif;
    margin: 0;
    padding: 0;
 }
 
 /*Edit Tarefa*/
 
-header {
-   text-align: center;
-   font-family: chalkBoardFont;
-   font-size: 30px;
-   background-color: whitesmoke;
-   padding: 18px;
+header h1 {
+   position: fixed;
+   color: rgb(14, 14, 14);
+   padding-left: 20px;
+   font-weight: 500;
+   padding-top: 10px;
+   width: 250px;
+   background-color: #d9d9d9;
+   background-color: transparent;
 }
 
 #username {
@@ -19,29 +23,45 @@ header {
    font-size: small;
 }
 
+.body_color {
+   z-index: -10;
+   background-color: rgb(23, 43, 76);
+   position: fixed;
+   margin-top: 18px;
+   margin-left: 270px;
+   height: 100%;
+   width: 90%;
+   border-top-left-radius: 30px;
+   box-shadow: -2.5px -2.5px 2.5px 1px rgb(0, 0, 0);
+}
+
+.aside_color {
+   z-index: -11;
+   background-color: rgb(244, 244, 244);
+   height: 100%;
+   width: 100%;
+   position: fixed;
+}
 .taskBody {
-   background-color: whitesmoke;
+   background-color: transparent;
 }
 
 .taskMain {
    padding: 20px;
+   margin-bottom: 55px;
 }
 
 .descricaoTarefa {
-   margin: 5px auto;
-   background-color: #e6e6e6;
+   margin: 39px auto;
+   background-color: rgb(244, 244, 244);
    color: #fff;
    border-radius: 12px;
-   height: 23em;
-   width: 23em;
+   height: 29em;
+   width: 24em;
    padding: 1em;
    padding-top: 10px;
    padding-bottom: 1.8em;
    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
-}
-
-.descricaoTarefa input {
-   margin-top: 1em;
 }
 
 .descricaoTarefa:hover,
@@ -57,75 +77,76 @@ header {
    margin-bottom: 10px;
 }
 
-.descricaoTarefa p {
-   color: #000;
-   font-family: indieFlower;
-   font-size: 1.5rem;
-   font-weight: normal;
-   margin-bottom: 20px;
-}
-
 .buttons {
    display: flex;
    justify-content: center;
 }
 
+#title {
+   margin-top: 15px;
+   width: 95%;
+   margin-left: 10px;
+}
 #cancel {
    color: black;
-   background-color: #e6e6e6;
    font-size: 20px;
    margin: 0;
-   margin-left: 350px;
+   margin-left: 360px;
    font-weight: bold;
    border-radius: 50%;
-   padding: 0px 5px;
+   padding: 0px 6px;
+   padding-bottom: 2px;
    cursor: pointer;
 }
 
 #cancel:hover {
-   background-color: #c2c2c2;
+   background-color: rgb(230, 230, 230);
 }
 
 #cancel:active {
-   background-color: #a2a2a2;
+   background-color: rgb(217, 217, 217);
 }
 
 button {
-   background-color: #4caf50;
-   border: none;
-   color: white;
+   background-color: transparent;
+   color: rgb(14, 14, 14);
+   border-color: (14, 14, 14);
+   border: solid;
+   border-width: 2px;
    cursor: pointer;
-   margin-left: 10px;
+   margin-left: 8px;
    padding: 8px 16px;
    text-align: center;
-   text-decoration: none;
    display: inline-block;
    font-size: 16px;
-   margin-top: 30px;
-   transition-duration: 0.4s;
    border-radius: 5px;
+   width: 46%;
+   margin-right: 5px;
 }
 
 button:hover {
-   background-color: #45a049;
+   background-color: rgb(230, 230, 230);
+}
+button:active {
+   background-color: rgb(217, 217, 217);
 }
 
 footer {
-   position: fixed;
-   bottom: 0px;
-   background-color: rgb(0, 0, 0, 0.65);
+   position: relative;
+   background-color: #84848400;
    width: 100%;
-   text-align: center;
-   left: 0;
-   height: 45px;
+   text-align: right;
+   bottom: 0;
+   height: 30px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   font-size: 13px;
 }
 
 footer p {
-   font-family: "Segoe UI", Verdana, sans-serif;
-   color: white;
+   color: rgb(255, 255, 255);
    margin-top: 8px;
-   font-size: 16px;
-   text-align: center;
+   padding-right: 20px;
 }
 
 /*Form*/
@@ -135,23 +156,16 @@ footer p {
    justify-content: center;
 }
 
-.formBody {
-   font-family: Arial, sans-serif;
-   background-color: #f4f4f4;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-}
-
 form {
+   position: relative;
    background-color: #fff;
    border-radius: 8px;
    box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.5);
    padding: 20px;
    width: 400px;
+   left: 50%;
+
+   transform: translate(-50%, 15%);
 }
 
 label {
@@ -162,10 +176,28 @@ label {
 input,
 select,
 textarea {
-   width: 100%;
    padding: 8px;
-   margin-bottom: 16px;
+   margin-bottom: 12px;
    box-sizing: border-box;
+   background-color: #c2c2c2;
+   border-radius: 5px;
+   outline: none;
+   border: none;
+
+   box-shadow: 0px 0px 2px 0px black;
+}
+
+input::placeholder {
+   color: rgb(14, 14, 14);
+}
+
+#task_color {
+   margin-left: 10px;
+   margin-top: 0;
+   padding: 5px;
+   height: 40px;
+   width: 95%;
+   margin-bottom: 15px;
 }
 
 #members {
@@ -173,13 +205,16 @@ textarea {
    resize: none;
 }
 textarea {
+   width: 95%;
    resize: none;
+   margin-left: 10px;
+   margin-bottom: 15px;
+   border-radius: 5px;
+}
+
+textarea::placeholder {
+   color: rgb(14, 14, 14);
 }
 #addComment {
    margin-bottom: 14px;
-}
-
-#task_color {
-   height: 40px;
-   width: 60px;
 }

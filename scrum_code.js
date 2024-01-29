@@ -136,10 +136,15 @@ function taskCreationAddEvents(task_div) {
       window.location.href = "task.html";
    });
    task_div.addEventListener("dragstart", function () {
+      localStorage.setItem("drag_backgroundColor", task_div.style.backgroundColor);
       task_div.classList.add("drag");
+      task_div.style.backgroundColor = "#bebebe";
+      task_div.style.color = "#bebebe";
    });
    task_div.addEventListener("dragend", function () {
       task_div.classList.remove("drag");
+      task_div.style.backgroundColor = localStorage.getItem("drag_backgroundColor");
+      task_div.style.color = "#0e0e0e";
    });
 
    task_div.addEventListener("mouseenter", function () {
@@ -168,6 +173,7 @@ document.querySelector("#apply").addEventListener("click", function () {
    document.querySelector("#column2 .title").style.color = fontColor(doing_color);
    document.querySelector("#column3 .title").style.color = fontColor(done_color);
    document.querySelector("#btn_task").style.color = fontColor(toDo_color);
+   document.querySelector("#footer").style.color = fontColor(background_color);
 
    document.querySelector("#btn_task").addEventListener("mouseenter", function () {
       const color = hexToRGB(toDo_color, -15, -15, -15);
@@ -207,6 +213,7 @@ document.querySelector("#column1 .title").style.color = fontColor(localStorage.g
 document.querySelector("#column2 .title").style.color = fontColor(localStorage.getItem("doing_color"));
 document.querySelector("#column3 .title").style.color = fontColor(localStorage.getItem("done_color"));
 document.querySelector("#btn_task").style.color = fontColor(localStorage.getItem("toDo_color"));
+document.querySelector("#footer").style.color = fontColor(localStorage.getItem("background_color"));
 
 document.querySelector("#btn_task").addEventListener("mouseenter", function () {
    const color = hexToRGB(localStorage.getItem("toDo_color"), -15, -15, -15);
@@ -244,6 +251,7 @@ document.querySelector("#reset_settings").addEventListener("click", function () 
    document.querySelector("#column2 .title").style.color = fontColor("#f1f2f4");
    document.querySelector("#column3 .title").style.color = fontColor("#f1f2f4");
    document.querySelector("#btn_task").style.color = fontColor("#f1f2f4");
+   document.querySelector("#footer").style.color = fontColor("#172b4c");
 
    localStorage.setItem("background_color", "#172b4c");
    localStorage.setItem("toDo_color", "#f1f2f4");

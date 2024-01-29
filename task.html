@@ -7,22 +7,24 @@
       <link rel="stylesheet" href="tarefacss.css" />
    </head>
    <body class="taskBody">
+      <div class="body_color" id="scrum_color"></div>
+      <div class="aside_color"></div>
       <!--Cabeçalho-->
       <header>
-         <h1>Scrum App</h1>
+         <h1>Scrum Board</h1>
          <h6 id="username">username</h6>
       </header>
 
       <main class="taskMain">
-         <input type="color" id="task_color" />
          <div class="descricaoTarefa">
             <btn id="cancel">&times;</btn>
-            <input type="text" placeholder="Task Title" id="title" />
-            <textarea cols="30" rows="18" placeholder="Task Description" id="description"></textarea>
-         </div>
-         <div class="buttons">
-            <button id="task_save">Save</button>
-            <button id="task_delete">Delete</button>
+            <input type="text" placeholder="Task Title" id="title" required />
+            <textarea cols="30" rows="14" placeholder="Task Description" id="description"></textarea>
+            <input type="color" id="task_color" />
+            <div class="buttons">
+               <button id="task_save">Save</button>
+               <button id="task_delete">Delete</button>
+            </div>
          </div>
       </main>
 

@@ -53,6 +53,7 @@ header h1 {
    background-color: #e7e7e7;
    box-sizing: border-box;
    color: rgb(14, 14, 14);
+   box-shadow: 0px 0px 2px 0px black;
 }
 
 .form_group input::placeholder {
@@ -66,7 +67,6 @@ header h1 {
    background-color: transparent;
    border: solid;
    border-width: 2px;
-
    border-color: rgb(14, 14, 14);
    cursor: pointer;
    padding: 8px;
@@ -77,7 +77,7 @@ header h1 {
 }
 
 .form_group button:hover {
-   background-color: rgb(237, 237, 237);
+   background-color: rgb(230, 230, 230);
 }
 
 .form_group button:active {
@@ -122,7 +122,7 @@ footer p {
 
 .aside_color {
    z-index: -11;
-   background-color: white;
+   background-color: rgb(244, 244, 244);
    height: 100%;
    width: 100%;
    position: fixed;
@@ -138,7 +138,7 @@ footer p {
    margin-left: 10px;
    width: 300px;
    height: 489px;
-   background-color: rgb(241, 242, 244);
+   background-color: rgb(244, 244, 244);
    border-radius: 12px;
    border-width: 2px;
    padding-top: 12px;
@@ -179,7 +179,7 @@ footer p {
    border-radius: 10px;
    font-size: 14px;
    background-color: #ffffff;
-   color: rgb(14, 14, 14);
+   color: #0e0e0e;
    border: solid;
    border-width: 1.8px;
    border-color: transparent;
@@ -192,8 +192,8 @@ footer p {
 }
 
 .drag {
-   background-color: #bebebe;
-   color: #bebebe;
+   background-color: #aa0000;
+   color: #000000;
 }
 
 .task {
@@ -217,7 +217,7 @@ footer p {
 }
 
 .task_btn:hover {
-   background-color: #d9d9d9;
+   background-color: rgb(230, 230, 230);
    cursor: pointer;
 }
 
@@ -254,16 +254,16 @@ footer p {
    border-radius: 5px;
    margin-left: 10px;
    padding-bottom: 3px;
-   background-color: rgb(241, 242, 244);
+   background-color: rgb(244, 244, 244);
 }
 #btn_task:hover {
-   background-color: rgb(221, 221, 221);
+   background-color: rgb(230, 230, 230);
    padding-bottom: 8px;
    cursor: pointer;
 }
 
 #btn_task:active {
-   background-color: rgb(199, 199, 199);
+   background-color: rgb(217, 217, 217);
 }
 
 aside {
@@ -290,7 +290,7 @@ aside {
 }
 
 #menu button:hover {
-   background-color: rgb(237, 237, 237);
+   background-color: rgb(230, 230, 230);
    cursor: pointer;
 }
 
@@ -338,7 +338,7 @@ aside {
    position: fixed;
    height: 380px;
    width: 400px;
-   background-color: white;
+   background-color: rgb(244, 244, 244);
    z-index: 3;
    top: 50%;
    left: 50%;
@@ -362,11 +362,11 @@ aside {
 }
 
 #modal_cancel:hover {
-   background-color: #c2c2c2;
+   background-color: rgb(230, 230, 230);
 }
 
 #modal_cancel:active {
-   background-color: #a2a2a2;
+   background-color: rgb(217, 217, 217);
 }
 
 .label_modal {
@@ -425,11 +425,11 @@ aside {
 }
 
 #modal_cancel2:hover {
-   background-color: #c2c2c2;
+   background-color: rgb(230, 230, 230);
 }
 
 #modal_cancel2:active {
-   background-color: #a2a2a2;
+   background-color: rgb(217, 217, 217);
 }
 
 #settings_header {
@@ -482,7 +482,7 @@ aside {
    cursor: pointer;
 }
 .settings_buttons:hover {
-   background-color: rgb(237, 237, 237);
+   background-color: rgb(230, 230, 230);
 }
 
 .settings_buttons:active {
