@@ -1,17 +1,23 @@
 const username = localStorage.getItem("username");
 document.querySelector("#user").textContent = username;
 const tasks = JSON.parse(localStorage.getItem("tasks"));
-console.log("antes de print");
+const sprints = JSON.parse(localStorage.getItem("sprints"));
+
 console.log(tasks);
+console.log(sprints);
 printTasks(tasks);
-console.log("depois de print");
 
 document.querySelector("#logout").addEventListener("click", function () {
+   localStorage.setItem("username", "");
    window.location.href = "login.html";
 });
 
 document.querySelector("#btn_sprint").addEventListener("click", function () {
    window.location.href = "sprint_form.html";
+});
+
+document.querySelector("#btn_retrospective").addEventListener("click", function () {
+   document.querySelector("#modal_sprints").visibility = "visibility";
 });
 
 document.querySelector("#btn_task").addEventListener("click", function () {
@@ -43,22 +49,6 @@ for (let taskList of taskLists) {
 window.addEventListener("beforeunload", function () {
    localStorage.setItem("tasks", JSON.stringify(tasks));
 });
-
-const buttons = document.querySelectorAll(".task_btn");
-
-for (let btn of buttons) {
-   btn.addEventListener("click", function () {
-      for (let i = 0; i < tasks.length; i++) {
-         if (tasks[i].id == this.parentNode.id) {
-            const task_sel = tasks[i];
-            document.querySelector("#modal_title").innerHTML = task_sel.title;
-            document.querySelector("#modal_description").innerHTML = task_sel.description;
-            document.querySelector("#modal").style.visibility = "visible";
-            document.querySelector("#background").style.visibility = "visible";
-         }
-      }
-   });
-}
 
 document.querySelector("#modal_cancel").addEventListener("click", function () {
    document.querySelector("#modal").style.visibility = "hidden";
@@ -92,7 +82,7 @@ function printTasks(tasks) {
 
       task_div.appendChild(task_title);
       const task_btn = document.createElement("button");
-      task_btn.innerHTML = "&#9871;";
+      task_btn.innerHTML = "&#9998;";
       task_btn.classList.add("task_btn");
       task_btn.style.color = fontColor(tasks[i].color);
 
@@ -122,10 +112,12 @@ function printTasks(tasks) {
    }
 }
 
-function taskCreationAddEvents(task_div) {
-   task_div.addEventListener("dblclick", function () {
+const buttons = document.querySelectorAll(".task_btn");
+
+for (let btn of buttons) {
+   btn.addEventListener("click", function () {
       for (let i = 0; i < tasks.length; i++) {
-         if (tasks[i].id == task_div.id) {
+         if (tasks[i].id == this.parentNode.id) {
             localStorage.setItem("task_index", i);
             localStorage.setItem("task_object", JSON.stringify(tasks[i]));
             setTimeout(() => {
@@ -135,6 +127,21 @@ function taskCreationAddEvents(task_div) {
       }
       window.location.href = "task.html";
    });
+}
+
+function taskCreationAddEvents(task_div) {
+   task_div.addEventListener("dblclick", function () {
+      for (let i = 0; i < tasks.length; i++) {
+         if (tasks[i].id == task_div.id) {
+            const task_sel = tasks[i];
+            document.querySelector("#modal_title").innerHTML = task_sel.title;
+            document.querySelector("#modal_description").innerHTML = task_sel.description;
+            document.querySelector("#modal").style.visibility = "visible";
+            document.querySelector("#background").style.visibility = "visible";
+         }
+      }
+   });
+
    task_div.addEventListener("dragstart", function () {
       localStorage.setItem("drag_backgroundColor", task_div.style.backgroundColor);
       task_div.classList.add("drag");
