@@ -91,10 +91,10 @@ header h1 {
   margin-top: 5px;
 }
 footer {
-  position: relative;
+  position: fixed;
   background-color: #84848400;
   width: 100%;
-  text-align: right;
+  text-align: left;
   bottom: 0;
   height: 30px;
   padding-top: 5px;
@@ -103,7 +103,7 @@ footer {
 }
 
 footer p {
-  color: rgb(255, 255, 255);
+  margin-left: 10px;
   margin-top: 8px;
   padding-right: 20px;
 }
@@ -133,10 +133,18 @@ footer p {
 }
 #date_col {
   width: 10px;
+  font-size: 8;
 }
 
 #title_col {
   width: 400px;
+}
+
+#retrospective_title {
+  margin-left: 400px;
+  margin-top: 35px;
+  width: fit-content;
+  color: rgb(217, 217, 217);
 }
 
 #retrospective_list {
@@ -148,9 +156,8 @@ footer p {
     border-radius: 12px;
     border-width: 2px;
     padding-top: 12px;
-    margin-top: 80px;
-
-    width: 800px;
+    margin-top: 21px;
+    width: 500px;
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -159,7 +166,7 @@ footer p {
   th,
   td {
     padding: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.349);
   }
 
   th {
@@ -175,22 +182,8 @@ footer p {
   tbody {
     tr {
       &:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-      }
-    }
-    td {
-      position: relative;
-      &:hover {
-        &:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: -9999px;
-          bottom: -9999px;
-          background-color: rgba(255, 255, 255, 0.2);
-          z-index: -1;
-        }
+        background-color: rgba(0, 0, 0, 0.199);
+        cursor: pointer;
       }
     }
   }

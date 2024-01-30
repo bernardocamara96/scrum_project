@@ -12,7 +12,7 @@ document.querySelector("#btn_sprint").addEventListener("click", function () {
 
 const retrospectiveLit = JSON.parse(localStorage.getItem("retroList"));
 // hardcode para teste
-const retro1 = { date: "1242", title: "titulo1" };
+const retro1 = { date: "12422222222222", title: "titulo1" };
 const retro2 = { date: "1355", title: "titulo2" };
 const retrospectiveList = [retro1, retro2];
 
