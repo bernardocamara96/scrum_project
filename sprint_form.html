@@ -1,31 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Formulário Sprint</title>
-      <link rel="stylesheet" href="tarefacss.css" />
-   </head>
-   <body class="formBody">
-      <div class="body_color" id="scrum_color"></div>
-      <div class="aside_color"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário Sprint</title>
+    <link rel="stylesheet" href="sprintcss.css" />
+  </head>
+
+  <body class="formBody">
+    <header>
+      <h1>Scrum Board</h1>
+    </header>
+
+    <div class="formStructure">
       <!-- Formulário-->
-      <form autocomplete="on">
-         <h2 id="tituloForm">Sprint Form</h2>
+      <form id="formId" autocomplete="on">
+        <h2 id="tituloForm">Retrospective Form</h2>
 
-         <!-- Data reunião -->
-         <label for="dataReuniao">Date:</label>
-         <input type="date" id="dataReuniao" name="dataReuniao" required />
-         <br>
+        <div id="formContainer">
+          <!--Lado esquerdo do form-->
+          <div id="leftForm">
+            <!-- Membros presentes-->
+            <label for="membrosP">Team Members:</label>
+            <input type="text" id="membrosP" name="membrosP" />
 
-         <!-- Membros presentes-->
-         <label for="membrosP">Team Members:</label>
+            <button type="button" id="addMember">Add Member</button>
+            <ul id="listMembers">
+              <!-- Nomes vão para aqui-->
+            </ul>
+          </div>
 
-         <textarea id="members" name="comments" rows="12" cols="50"></textarea>
+          <!-- Lado direito do form-->
+          <div id="rightForm">
+            <!-- Tabela comentários-->
+            <table id="tabelaComentarios">
+              <tr>
+                <th id="colunaComent">Comment</th>
+                <th id="colunaCateg">Type</th>
+                <th id="colunaMembro">Member</th>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-         <!-- Botão Gravar -->
-         <button type="button" id="saveSprint">Save</button>
+        <div id="footerForm">
+          <!-- Abre Modal -->
+          <button type="button" id="addComment">Add Comment</button>
+          <button type="button" id="submitSprint">Save</button>
+        </div>
 
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+          <div class="modalContent">
+            <div class="modal-header">
+              <!-- símbolo 'x'-->
+              <span class="close">&times;</span>
+              <h2>New Comment</h2>
+            </div>
+
+            <!-- Comentário -->
+            <textarea
+              id="areaComentario"
+              name="comments"
+              rows="4"
+              cols="50"
+              required
+            ></textarea>
+
+            <!-- Categorias dos comentários-->
+            <select id="categoriaComentario" name="categoriaComentario">
+              <option value="none" disabled selected>Select an option</option>
+              -->
+              <option value="Positive">Positive</option>
+              <option value="Challenges">Challenges</option>
+              <option value="Improvement suggestions">
+                Improvement suggestions
+              </option>
+            </select>
+
+            <select id="selectMember" name="selectMember">
+              <option value="none" disabled selected>Select a member</option>
+            </select>
+
+            <button id="guardarNovoComent" type="button">Save</button>
+          </div>
+        </div>
       </form>
-   </body>
+    </div>
+
+    <footer>
+      <div>
+        <p>© Acertar o Rumo 2024</p>
+      </div>
+    </footer>
+
+    <script src="sprintFormJS.js"></script>
+  </body>
 </html>
