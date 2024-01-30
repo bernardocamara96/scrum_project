@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retrospective</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="background"></div>
+    <div class="body_color" id="scrum_color"></div>
+    <div class="aside_color"></div>
+    <!--<header><h1>Scrum Board</h1></header> -->
+    <main id="scrum_main">
+      <header><h1>Retrospetive</h1></header>
+      <section id="scrum_section">
+        <aside>
+          <div id="menu">
+            <p class="menu_item" id="user">Username</p>
+            <button class="menu_item" id="logout">Logout</button>
+            <button class="menu_item" id="btn_sprint">
+              + New Retrospective
+            </button>
+            <!-- botao settings desativado para já
+            
+            
+            <button class="menu_item" id="btn_settings">
+              &#9881; Settings
+            </button>
+        -->
+          </div>
+        </aside>
+
+        <div id="retrospective">
+          <section id="retrospective_list">
+            <table id="retrospective_table">
+              <thead>
+                <tr>
+                  <th id="date_col">Date</th>
+                  <th id="title_col">Title</th>
+                </tr>
+              </thead>
+              <tbody id="table_body">
+                <!-- rows to be added here -->
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <!-- CODIGO MODAL CORES (USAR PRA MODAL DE CONSTRUIR RETRO)
+
+
+      <section class="modal" id="modal">
+         <div>
+            <div id="modal_cancel">&times;</div>
+            <div class="label_modal">Title</div>
+            <div id="modal_title"></div>
+         </div>
+         <div>
+            <div class="label_modal">Description</div>
+            <div id="modal_description"></div>
+         </div>
+      </section>
+
+      <section class="modal" id="modal_settings">
+         <section id="settings_header">
+            <h2 id="title_settings">Colors</h2>
+            <button id="modal_cancel2">&times;</button>
+         </section>
+
+         <section id="main_settings">
+            <section id="settings_section">
+               <div class="colors"><span>Background</span><input type="color" id="background_color" /></div>
+               <div class="colors"><span>To Do</span><input type="color" id="toDo_color" /></div>
+               <div class="colors"><span>Doing</span><input type="color" id="doing_color" /></div>
+               <div class="colors"><span>Done</span><input type="color" id="done_color" /></div>
+            </section>
+            <section id="btns_settings">
+               <button id="apply" class="settings_buttons">Apply</button>
+               <button id="reset_settings" class="settings_buttons">Reset</button>
+               <button id="cancel_settings" class="settings_buttons">Cancel</button>
+            </section>
+         </section>
+      </section>
+    -->
+
+    <footer>
+      <div>
+        <p id="footer">© Acertar o Rumo 2024</p>
+      </div>
+    </footer>
+  </body>
+  <script src="retrospective.js"></script>
+</html>
