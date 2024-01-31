@@ -43,7 +43,7 @@ let listComments = new Array();
 
 //Ao clicar no botão, escreve informação na tabela
 bGuardarComent.onclick = function () {
-   console.log("click guardar");
+  console.log("click guardar");
 
    if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario.value != "") {
       //Esconde Modal
@@ -56,12 +56,16 @@ bGuardarComent.onclick = function () {
       const btn_edit = document.createElement("button");
       const novaLinhaTab = document.createElement("tr");
 
-      //Add novo comentário ao array
-      const newComment = [areaComentario.value, categoriaComentario.value, selectMember.value];
+    //Add novo comentário ao array
+    const newComment = [
+      areaComentario.value,
+      categoriaComentario.value,
+      selectMember.value,
+    ];
 
-      listComments.push(newComment);
+    listComments.push(newComment);
 
-      console.log(listComments);
+    console.log(listComments);
 
       //Adicionar na tabela
       comentario_cell.innerText = areaComentario.value;
@@ -117,7 +121,7 @@ bGuardarComent.onclick = function () {
       novaLinhaTab.appendChild(member_cell);
       novaLinhaTab.appendChild(btn_edit_cell);
 
-      document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
+    document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
 
       //Reset display dos botões para ficarem invisiveis
       bGuardarComent.style.display = "none";
@@ -140,9 +144,7 @@ btn_addMember.addEventListener("click", function () {
 
       console.log(members);
 
-      //Mostrar Membros
-      let listMembers = document.getElementById("listMembers");
-      let selectMembers = document.getElementById("selectMember");
+    console.log(members);
 
       //Adiciona sempre o último
       //Lista
@@ -179,9 +181,9 @@ btn_addMember.addEventListener("click", function () {
 
 //Objeto Sprint
 
-const title_sprint = document.getElementById("titleSprint");
+const date_sprint = document.getElementById("dataReuniao");
 const btn_saveSprint = document.getElementById("submitSprint");
-const list_retro = JSON.parse(localStorage.getItem("retros"));
+const list_retro = new Array();
 
 btn_saveSprint.addEventListener("click", function () {
    if (title_sprint.value == "") {
@@ -207,18 +209,18 @@ btn_saveSprint.addEventListener("click", function () {
 });
 
 form.addEventListener("submit", function (e) {
-   e.preventDefault;
+  e.preventDefault;
 });
 
 //Colocar primeira letra em Maiúscula
 function letraCaps(word) {
-   const firstLetterCap = word.charAt(0).toUpperCase();
+  const firstLetterCap = word.charAt(0).toUpperCase();
 
-   const remainingLetters = word.substring(1);
+  const remainingLetters = word.substring(1);
 
-   const capWord = firstLetterCap + remainingLetters;
+  const capWord = firstLetterCap + remainingLetters;
 
-   return capWord;
+  return capWord;
 }
 
 function removeMember(list, member) {
