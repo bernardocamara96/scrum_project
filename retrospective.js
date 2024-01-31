@@ -1,3 +1,5 @@
+document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
+
 // js aside
 const username = localStorage.getItem("username");
 document.querySelector("#user").textContent = username;

@@ -98,6 +98,11 @@ footer p {
    padding-right: 70px;
 }
 
+#leftForm label {
+   font-weight: bold;
+   margin-bottom: 0;
+}
+
 #rightForm {
    flex: 3;
    width: 100%;
@@ -225,12 +230,12 @@ td {
    color: white;
 }
 
-.closeIcon{
+.closeIcon {
    color: #fff;
 }
 
 .closeIcon:hover,
-.closeIcon:focus{
+.closeIcon:focus {
    color: #888;
    cursor: pointer;
 }

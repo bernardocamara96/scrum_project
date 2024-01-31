@@ -1,3 +1,5 @@
+document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
+
 //Obter o Modal
 var modal = document.getElementById("myModal");
 
@@ -69,7 +71,7 @@ btn_addMember.addEventListener("click", function () {
    if (memberInput.value != "") {
       //Adiciona o membro à array
       members.push(letraCaps(memberInput.value));
-   
+
       console.log(members);
 
       //Mostrar Membros
@@ -77,31 +79,31 @@ btn_addMember.addEventListener("click", function () {
       let selectMembers = document.getElementById("selectMember");
 
       //Adiciona sempre o último
-        //Lista
-        let li = document.createElement('li');
-        let close = document.createElement('span');
-        li.setAttribute('id', letraCaps(memberInput.value));
-        li.innerText = members[members.length-1];
-        //icon close
-        close.classList.add('closeIcon');
-        close.innerText = ' ' + '\u00D7';
+      //Lista
+      let li = document.createElement("li");
+      let close = document.createElement("span");
+      li.setAttribute("id", letraCaps(memberInput.value));
+      li.innerText = members[members.length - 1];
+      //icon close
+      close.classList.add("closeIcon");
+      close.innerText = " " + "\u00D7";
 
-        //Input Select no Modal
-        let opt = document.createElement('option');
-        opt.innerText = members[members.length-1];
-        opt.value = opt.innerText;
-        selectMembers.appendChild(opt);
+      //Input Select no Modal
+      let opt = document.createElement("option");
+      opt.innerText = members[members.length - 1];
+      opt.value = opt.innerText;
+      selectMembers.appendChild(opt);
 
-         //Evento para poder eliminar
-        close.addEventListener('click', function() {
-            li.remove();
-            opt.remove();
-            removeMember(members, li.textContent);
-        });
+      //Evento para poder eliminar
+      close.addEventListener("click", function () {
+         const line = li.textContent.slice(0, li.textContent.length - 2);
+         removeMember(members, line);
+         li.remove();
+         opt.remove();
+      });
 
-        li.appendChild(close);
-        listMembers.appendChild(li);
-
+      li.appendChild(close);
+      listMembers.appendChild(li);
 
       memberInput.value = "";
    } else {
@@ -116,24 +118,26 @@ const btn_saveSprint = document.getElementById("submitSprint");
 const list_retro = JSON.parse(localStorage.getItem("retros"));
 
 btn_saveSprint.addEventListener("click", function () {
-   if (listComments.length > 0) {
-      let title = title_sprint.value;
-      let atual_date = new Date();
-      atual_date = JSON.stringify(atual_date);
-      const retro = {
-         date: atual_date.slice(1, 11),
-         members: members,
-         comments: listComments,
-      };
+   if (title_sprint.value == "") {
+      if (listComments.length > 0) {
+         let atual_date = new Date();
+         atual_date = JSON.stringify(atual_date);
+         const retro = {
+            date: atual_date.slice(1, 11),
+            members: members,
+            comments: listComments,
+            title: title_sprint.value,
+         };
 
-      list_retro.push(retro);
+         list_retro.push(retro);
 
-      localStorage.setItem("retros", JSON.stringify(list_retro));
+         localStorage.setItem("retros", JSON.stringify(list_retro));
 
-      window.location.href = "retrospective.html";
+         window.location.href = "retrospective.html";
 
-      title_sprint.innerText="";
-   }
+         title_sprint.innerText = "";
+      } else alert("The Retrospective need to have a title.");
+   } else alert("Retrospective need to have comments.");
 });
 
 form.addEventListener("submit", function (e) {
@@ -152,9 +156,8 @@ function letraCaps(word) {
 }
 
 function removeMember(list, member) {
-
    const index = list.indexOf(member);
-   if (index > -1){
-       list.splice(index,1);
+   if (index > -1) {
+      list.splice(index, 1);
    }
-};
+}
