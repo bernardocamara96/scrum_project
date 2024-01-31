@@ -155,7 +155,7 @@ tr {
 
 th,
 td {
-   padding: 8px;
+   padding: 2%;
    text-align: left;
 }
 
@@ -166,7 +166,11 @@ td {
 }
 
 #colunaCateg {
-   width: 170px;
+   width: 22%;
+}
+
+#colunaBtnEdit {
+   width: 12%;
 }
 
 #addComment {
@@ -238,4 +242,12 @@ td {
 .closeIcon:focus {
    color: #888;
    cursor: pointer;
+}
+
+#guardarNovoComent{
+   display: none;
+}
+
+#saveEdit{
+   display: none;
 }

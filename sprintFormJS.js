@@ -1,27 +1,43 @@
 document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
 
+//Botão que guarda novo comentário
+let bGuardarComent = document.getElementById('guardarNovoComent');
+
+//Botão que guarda o edit do comentário
+let bEditComment = document.getElementById('saveEdit');
+
 //Obter o Modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 //Botão que abre o Modal
-var bOpenModel = document.getElementById("addComment");
+let bOpenModal = document.getElementById("addComment");
 
 //Obter o <span> que fecha o Modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
 //Ao clicar no botão, abrir Modal
-bOpenModel.onclick = function () {
+bOpenModal.onclick = function () {
+
+   //Botão de guardar fica visível
+   bGuardarComent.style.display = "block";
+
+   document.getElementById('areaComentario').value = ""; //Limpa textarea
+   document.getElementById('categoriaComentario').value = "none"; //Limpa select
+   document.getElementById('selectMember').value = "none"; //Limpa select
+
    modal.style.display = "block";
+
+   console.log(listComments);
 };
 
 //Ao clicar no (x), fechar Modal
 span.onclick = function () {
    console.log("Botão x clicado");
    modal.style.display = "none";
+   //Reset display dos botões para ficarem invisiveis
+   bGuardarComent.style.display = "none";
+   bEditComment.style.display = "none";
 };
-
-//Botão que adiciona novo comentário
-let bGuardarComent = document.getElementById("guardarNovoComent");
 
 let listComments = new Array();
 
@@ -30,12 +46,14 @@ bGuardarComent.onclick = function () {
    console.log("click guardar");
 
    if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario.value != "") {
-      //Retira Modal
+      //Esconde Modal
       modal.style.display = "none";
 
       const comentario_cell = document.createElement("td");
       const categ_cell = document.createElement("td");
       const member_cell = document.createElement("td");
+      const btn_edit_cell = document.createElement("td");
+      const btn_edit = document.createElement("button");
       const novaLinhaTab = document.createElement("tr");
 
       //Add novo comentário ao array
@@ -49,14 +67,62 @@ bGuardarComent.onclick = function () {
       comentario_cell.innerText = areaComentario.value;
       categ_cell.innerText = categoriaComentario.value;
       member_cell.innerText = selectMember.value;
+      btn_edit.innerHTML = "&#9998";
+      btn_edit.classList.add('edit_comment');
+      btn_edit.type = ("button");
+
+      //Evento para guardar edição
+      btn_edit.addEventListener("click", function () {
+
+         //Botão de edição e Modal ficam visíveis
+         bEditComment.style.display = "block";
+         modal.style.display = "block";
+
+         document.getElementById('areaComentario').value = comentario_cell.innerText;
+         document.getElementById('categoriaComentario').value = categ_cell.innerText;
+         document.getElementById('selectMember').value = member_cell.innerText;
+
+         document.getElementById("saveEdit").onclick = function() {
+
+            const updatedComment = [
+               document.getElementById('areaComentario').value,
+               document.getElementById('categoriaComentario').value,
+               document.getElementById('selectMember').value
+            ];
+
+            let index = listComments.indexOf(newComment);
+            if(index !== -1){
+               listComments[index]=updatedComment;
+            }
+
+            // Atualiza o conteúdo da própria linha
+            comentario_cell.innerText = updatedComment[0];
+            categ_cell.innerText = updatedComment[1];
+            member_cell.innerText = updatedComment[2];
+    
+            // Esconde o Modal
+            modal.style.display = "none";
+
+            //Reset display dos botões para ficarem invisiveis
+            bGuardarComent.style.display = "none";
+            bEditComment.style.display = "none";
+         };
+      });
+
+      //AppendChilds
+      btn_edit_cell.appendChild(btn_edit);
 
       novaLinhaTab.appendChild(comentario_cell);
       novaLinhaTab.appendChild(categ_cell);
       novaLinhaTab.appendChild(member_cell);
+      novaLinhaTab.appendChild(btn_edit_cell);
 
       document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
 
-      document.getElementById("areaComentario").value = ""; //Limpa textarea
+      //Reset display dos botões para ficarem invisiveis
+      bGuardarComent.style.display = "none";
+      bEditComment.style.display = "none";
+
    } else alert("All the fields are required");
 };
 
@@ -156,7 +222,7 @@ function letraCaps(word) {
 }
 
 function removeMember(list, member) {
-   const index = list.indexOf(member);
+   let index = list.indexOf(member);
    if (index > -1) {
       list.splice(index, 1);
    }
