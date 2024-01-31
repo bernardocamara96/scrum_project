@@ -27,7 +27,7 @@ let listComments = new Array();
 bGuardarComent.onclick = function () {
    console.log("click guardar");
 
-   if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario != "") {
+   if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario.value != "") {
       //Retira Modal
       modal.style.display = "none";
 
@@ -96,20 +96,24 @@ btn_addMember.addEventListener("click", function () {
 
 const date_sprint = document.getElementById("dataReuniao");
 const btn_saveSprint = document.getElementById("submitSprint");
-const list_retro = new Array();
+const list_retro = JSON.parse(localStorage.getItem("retros"));
 
 btn_saveSprint.addEventListener("click", function () {
-   let sprint = {
-      date: new Date(),
-      members: members,
-      comments: listComments,
-   };
+   if (listComments.length > 0) {
+      let atual_date = new Date();
+      atual_date = JSON.stringify(atual_date);
+      const retro = {
+         date: atual_date.slice(1, 11),
+         members: members,
+         comments: listComments,
+      };
 
-   list_retro.push(sprint);
+      list_retro.push(retro);
 
-   localStorage.setItem("retros", JSON.stringify(list_retro));
+      localStorage.setItem("retros", JSON.stringify(list_retro));
 
-   console.log(sprint);
+      window.location.href = "retrospective.html";
+   }
 });
 
 form.addEventListener("submit", function (e) {

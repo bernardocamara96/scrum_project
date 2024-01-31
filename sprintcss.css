@@ -1,17 +1,37 @@
 * {
+   font-family: "Segoe UI", Verdana, sans-serif;
    margin: 0;
    padding: 0;
 }
 
-header {
-   text-align: center;
-   font-size: 20px;
-   font-weight: bold;
-   padding-bottom: 20px;
-   background: linear-gradient(45deg, black 0%, #00095d 50%, #dad800 100%);
-   padding-top: 20px;
-   padding-bottom: 20px;
-   color: white;
+header h1 {
+   position: fixed;
+   color: rgb(14, 14, 14);
+   padding-left: 20px;
+   font-weight: 500;
+   padding-top: 10px;
+   width: 250px;
+   background-color: #d9d9d9;
+   background-color: transparent;
+}
+.body_color {
+   z-index: -10;
+   background-color: rgb(23, 43, 76);
+   position: fixed;
+   margin-top: 18px;
+   margin-left: 270px;
+   height: 100%;
+   width: 90%;
+   border-top-left-radius: 30px;
+   box-shadow: -2.5px -2.5px 2.5px 1px rgb(0, 0, 0);
+}
+
+.aside_color {
+   z-index: -11;
+   background-color: rgb(244, 244, 244);
+   height: 100%;
+   width: 100%;
+   position: fixed;
 }
 
 #listMembers {
@@ -62,7 +82,7 @@ footer p {
 
 .formStructure {
    font-family: Arial, sans-serif;
-   background-color: #f4f4f4;
+   background-color: transparent;
    display: flex;
    justify-content: center;
    align-items: center;

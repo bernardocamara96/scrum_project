@@ -132,10 +132,10 @@ button:active {
 }
 
 footer {
-   position: relative;
+   position: fixed;
    background-color: #84848400;
    width: 100%;
-   text-align: right;
+   text-align: left;
    bottom: 0;
    height: 30px;
    padding-top: 5px;
@@ -144,7 +144,7 @@ footer {
 }
 
 footer p {
-   color: rgb(255, 255, 255);
+   margin-left: 10px;
    margin-top: 8px;
    padding-right: 20px;
 }
