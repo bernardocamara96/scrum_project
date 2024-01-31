@@ -11,13 +11,13 @@ var span = document.getElementsByClassName("close")[0];
 
 //Ao clicar no botão, abrir Modal
 bOpenModel.onclick = function () {
-   modal.style.display = "block";
+  modal.style.display = "block";
 };
 
 //Ao clicar no (x), fechar Modal
 span.onclick = function () {
-   console.log("Botão x clicado");
-   modal.style.display = "none";
+  console.log("Botão x clicado");
+  modal.style.display = "none";
 };
 
 //Botão que adiciona novo comentário
@@ -27,37 +27,45 @@ let listComments = new Array();
 
 //Ao clicar no botão, escreve informação na tabela
 bGuardarComent.onclick = function () {
-   console.log("click guardar");
+  console.log("click guardar");
 
-   if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario.value != "") {
-      //Retira Modal
-      modal.style.display = "none";
+  if (
+    categoriaComentario.value != "none" &&
+    selectMember.value != "none" &&
+    areaComentario != ""
+  ) {
+    //Retira Modal
+    modal.style.display = "none";
 
-      const comentario_cell = document.createElement("td");
-      const categ_cell = document.createElement("td");
-      const member_cell = document.createElement("td");
-      const novaLinhaTab = document.createElement("tr");
+    const comentario_cell = document.createElement("td");
+    const categ_cell = document.createElement("td");
+    const member_cell = document.createElement("td");
+    const novaLinhaTab = document.createElement("tr");
 
-      //Add novo comentário ao array
-      const newComment = [areaComentario.value, categoriaComentario.value, selectMember.value];
+    //Add novo comentário ao array
+    const newComment = [
+      areaComentario.value,
+      categoriaComentario.value,
+      selectMember.value,
+    ];
 
-      listComments.push(newComment);
+    listComments.push(newComment);
 
-      console.log(listComments);
+    console.log(listComments);
 
-      //Adicionar na tabela
-      comentario_cell.innerText = areaComentario.value;
-      categ_cell.innerText = categoriaComentario.value;
-      member_cell.innerText = selectMember.value;
+    //Adicionar na tabela
+    comentario_cell.innerText = areaComentario.value;
+    categ_cell.innerText = categoriaComentario.value;
+    member_cell.innerText = selectMember.value;
 
-      novaLinhaTab.appendChild(comentario_cell);
-      novaLinhaTab.appendChild(categ_cell);
-      novaLinhaTab.appendChild(member_cell);
+    novaLinhaTab.appendChild(comentario_cell);
+    novaLinhaTab.appendChild(categ_cell);
+    novaLinhaTab.appendChild(member_cell);
 
-      document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
+    document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
 
-      document.getElementById("areaComentario").value = ""; //Limpa textarea
-   } else alert("All the fields are required");
+    document.getElementById("areaComentario").value = ""; //Limpa textarea
+  } else alert("All the fields are required");
 };
 
 //Adicionar Membros
@@ -74,9 +82,7 @@ btn_addMember.addEventListener("click", function () {
 
       console.log(members);
 
-      //Mostrar Membros
-      let listMembers = document.getElementById("listMembers");
-      let selectMembers = document.getElementById("selectMember");
+    console.log(members);
 
       //Adiciona sempre o último
       //Lista
@@ -113,9 +119,9 @@ btn_addMember.addEventListener("click", function () {
 
 //Objeto Sprint
 
-const title_sprint = document.getElementById("titleSprint");
+const date_sprint = document.getElementById("dataReuniao");
 const btn_saveSprint = document.getElementById("submitSprint");
-const list_retro = JSON.parse(localStorage.getItem("retros"));
+const list_retro = new Array();
 
 btn_saveSprint.addEventListener("click", function () {
    if (title_sprint.value == "") {
@@ -141,18 +147,18 @@ btn_saveSprint.addEventListener("click", function () {
 });
 
 form.addEventListener("submit", function (e) {
-   e.preventDefault;
+  e.preventDefault;
 });
 
 //Colocar primeira letra em Maiúscula
 function letraCaps(word) {
-   const firstLetterCap = word.charAt(0).toUpperCase();
+  const firstLetterCap = word.charAt(0).toUpperCase();
 
-   const remainingLetters = word.substring(1);
+  const remainingLetters = word.substring(1);
 
-   const capWord = firstLetterCap + remainingLetters;
+  const capWord = firstLetterCap + remainingLetters;
 
-   return capWord;
+  return capWord;
 }
 
 function removeMember(list, member) {
