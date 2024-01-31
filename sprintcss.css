@@ -173,9 +173,9 @@ td {
    display: flex;
    flex-direction: column;
    align-items: flex-end;
-   bottom: 0px;
-   width: 93%;
-   padding-bottom: 10px;
+   bottom: 0;
+   right: 5%;
+   padding-bottom: 2%;
 }
 
 /*Modal*/
@@ -223,4 +223,14 @@ td {
    margin-bottom: 10px;
    background-color: #046a7c;
    color: white;
+}
+
+.closeIcon{
+   color: #fff;
+}
+
+.closeIcon:hover,
+.closeIcon:focus{
+   color: #888;
+   cursor: pointer;
 }

@@ -67,9 +67,9 @@ const form = document.getElementById("formId");
 
 btn_addMember.addEventListener("click", function () {
    if (memberInput.value != "") {
+      //Adiciona o membro à array
       members.push(letraCaps(memberInput.value));
-      memberInput.value = "";
-
+   
       console.log(members);
 
       //Mostrar Membros
@@ -77,16 +77,33 @@ btn_addMember.addEventListener("click", function () {
       let selectMembers = document.getElementById("selectMember");
 
       //Adiciona sempre o último
-      //Lista
-      let li = document.createElement("li");
-      li.innerText = members[members.length - 1];
-      listMembers.appendChild(li);
+        //Lista
+        let li = document.createElement('li');
+        let close = document.createElement('span');
+        li.setAttribute('id', letraCaps(memberInput.value));
+        li.innerText = members[members.length-1];
+        //icon close
+        close.classList.add('closeIcon');
+        close.innerText = ' ' + '\u00D7';
 
-      //Input Select no Modal
-      let opt = document.createElement("option");
-      opt.innerText = members[members.length - 1];
-      opt.value = opt.innerText;
-      selectMembers.appendChild(opt);
+        //Input Select no Modal
+        let opt = document.createElement('option');
+        opt.innerText = members[members.length-1];
+        opt.value = opt.innerText;
+        selectMembers.appendChild(opt);
+
+         //Evento para poder eliminar
+        close.addEventListener('click', function() {
+            li.remove();
+            opt.remove();
+            removeMember(members, li.textContent);
+        });
+
+        li.appendChild(close);
+        listMembers.appendChild(li);
+
+
+      memberInput.value = "";
    } else {
       alert("Write a name");
    }
@@ -94,12 +111,13 @@ btn_addMember.addEventListener("click", function () {
 
 //Objeto Sprint
 
-const date_sprint = document.getElementById("dataReuniao");
+const title_sprint = document.getElementById("titleSprint");
 const btn_saveSprint = document.getElementById("submitSprint");
 const list_retro = JSON.parse(localStorage.getItem("retros"));
 
 btn_saveSprint.addEventListener("click", function () {
    if (listComments.length > 0) {
+      let title = title_sprint.value;
       let atual_date = new Date();
       atual_date = JSON.stringify(atual_date);
       const retro = {
@@ -113,6 +131,8 @@ btn_saveSprint.addEventListener("click", function () {
       localStorage.setItem("retros", JSON.stringify(list_retro));
 
       window.location.href = "retrospective.html";
+
+      title_sprint.innerText="";
    }
 });
 
@@ -130,3 +150,11 @@ function letraCaps(word) {
 
    return capWord;
 }
+
+function removeMember(list, member) {
+
+   const index = list.indexOf(member);
+   if (index > -1){
+       list.splice(index,1);
+   }
+};
