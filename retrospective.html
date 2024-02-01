@@ -48,19 +48,49 @@
             </table>
           </section>
         </div>
+
+        <section class="modal" id="modal1">
+          <div id="modal_header">
+             <div id="title_div">
+                 <label for="title_modal">Title:</label>
+                 <span id="title_modal"></span>
+             </div>
+             <div id="date_div">
+               <label for="date_modal">Date:</label>
+               <span id="date_modal"></span>
+             </div>
+             <div id="cancel_retrospectives">&times;</div>
+          </div>
+         
+          <div id="main_modal">
+             <div id="members_section">
+                 <label for="list_members">Members:</label>
+                 <div id="list_members">
+                 </div>
+             </div>
+             <div id="comments_section">
+                 <label for="table_comments" id="label_comments">Comments:</label>
+                 <div id="table_container">
+                <table id="table_comments">
+                  <thead>
+                    <tr>
+                      <th id="comment_id">Comment</th>
+                      <th id="type_id">Type</th>
+                      <th id="author_id">Author</th>
+                    </tr>
+                  </thead>
+                  <tbody id="body_comments">
+                   
+                    
+                  </tbody>
+                </table>
+              </div>
+             </div>
+         </div>
+           
+        </section>
       </section>
     </main>
-      <section class="modal" id="modal">
-         <div>
-            <div id="modal_cancel">&times;</div>
-            <div class="label_modal">Title</div>
-            <div id="modal_title"></div>
-         </div>
-         <div>
-            <div class="label_modal">Description</div>
-            <div id="modal_description"></div>
-         </div>
-    </section>
 
     <!-- CODIGO MODAL CORES (USAR PRA MODAL DE CONSTRUIR RETRO)
 

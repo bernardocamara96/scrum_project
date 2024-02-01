@@ -24,7 +24,7 @@ header h1 {
    margin: auto;
    text-align: left;
    width: 280px;
-   background-color: #ffffff;
+   background-color: rgb(244, 244, 244);
    padding: 20px;
    border-radius: 8px;
    box-shadow: -50px 0px 30px 30px rgba(0, 0, 0, 0.4);
@@ -50,7 +50,7 @@ header h1 {
    padding: 10px;
    border-radius: 5px;
    border: 0px;
-   background-color: #e7e7e7;
+   background-color: rgb(230, 230, 230);
    box-sizing: border-box;
    color: rgb(14, 14, 14);
    box-shadow: 0px 0px 2px 0px black;
@@ -132,7 +132,7 @@ footer p {
    padding-bottom: 110px;
 }
 #date_col {
-   width: 100px;
+   width: 150px;
    font-size: 8;
 }
 
@@ -191,7 +191,7 @@ footer p {
       border-width: 2px;
       padding-top: 12px;
       margin-top: 21px;
-      width: 500px;
+      width: 600px;
       border-collapse: collapse;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -417,6 +417,7 @@ aside {
    border-radius: 5px;
    width: 96%;
 }
+
 .menu_item {
    margin-top: 5px;
    margin-bottom: 5px;
@@ -454,6 +455,145 @@ aside {
    border-radius: 8px;
    visibility: hidden;
 }
+
+/*///////////////////////////////////////////*/
+#modal1 {
+   position: fixed;
+   height: 500px;
+   width: 820px;
+   background-color: rgb(244, 244, 244);
+   z-index: 3;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 8px;
+   visibility: hidden;
+}
+
+#modal_header {
+   display: flex;
+   margin-left: 30px;
+   margin-top: 5px;
+}
+
+#title_div {
+   width: 220px;
+   height: 20px;
+   margin-top: 20px;
+}
+
+#date_div {
+   width: 200px;
+   height: 20px;
+   margin-top: 20px;
+}
+
+#cancel_retrospectives {
+   margin-left: 338px;
+   font-size: 17.5px;
+   font-weight: bold;
+   border-radius: 50%;
+   width: 25px;
+   height: 25px;
+   text-align: center;
+}
+
+#cancel_retrospectives:hover {
+   background-color: rgb(230, 230, 230);
+   cursor: pointer;
+}
+
+#cancel_retrospectives:active {
+   background-color: rgb(217, 217, 217);
+}
+#members_section {
+   margin-left: 30px;
+}
+
+#list_members {
+   width: 185px;
+   height: 360px;
+   background-color: rgb(230, 230, 230);
+   margin-top: 5px;
+   border-radius: 5px;
+   padding-top: 5px;
+   padding-left: 5px;
+}
+
+#main_modal {
+   display: flex;
+   margin-top: 40px;
+}
+
+#modal1 label {
+   font-weight: bold;
+}
+
+#comments_section {
+   margin-left: 30px;
+}
+
+#table_container {
+   max-height: 365px;
+   overflow-y: auto;
+   overflow-x: hidden;
+   border-radius: 10px;
+   padding: 0;
+   margin-top: 5px;
+}
+
+#table_container::-webkit-scrollbar {
+   width: 9px;
+}
+
+#table_container::-webkit-scrollbar-thumb {
+   background-color: rgb(159, 159, 159);
+   border-radius: 10px;
+}
+
+#table_container::-webkit-scrollbar-track {
+   border-radius: 10px;
+   background-color: rgb(186, 186, 186);
+   margin-top: 25px;
+}
+
+#table_comments {
+   width: 540px;
+   padding-left: 0px;
+   padding-right: 0px;
+   margin-top: 0px;
+   background-color: rgb(230, 230, 230);
+   border-spacing: 0px;
+   border-collapse: separate;
+   border-radius: 5px;
+}
+
+#table_comments th {
+   border-bottom: 1px solid;
+   background-color: rgb(217, 217, 217);
+   position: sticky;
+   top: 0;
+}
+
+#comment_id {
+   border-top-left-radius: 5px;
+}
+#author_id {
+   width: 100px;
+   border-top-right-radius: 5px;
+}
+
+#type_id {
+   width: 190px;
+}
+
+#body_comments td {
+   height: 25px;
+   padding: 8px;
+   border-bottom: 1px solid;
+}
+
+/*/ //////////////////////////////*/
 
 #modal_cancel {
    border-radius: 50%;

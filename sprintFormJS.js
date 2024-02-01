@@ -1,10 +1,10 @@
 document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
 
 //Botão que guarda novo comentário
-let bGuardarComent = document.getElementById('guardarNovoComent');
+let bGuardarComent = document.getElementById("guardarNovoComent");
 
 //Botão que guarda o edit do comentário
-let bEditComment = document.getElementById('saveEdit');
+let bEditComment = document.getElementById("saveEdit");
 
 //Obter o Modal
 let modal = document.getElementById("myModal");
@@ -17,13 +17,12 @@ let spanCloseModal = document.getElementsByClassName("close")[1];
 
 //Ao clicar no botão, abrir Modal
 bOpenModal.onclick = function () {
-
    //Botão de guardar fica visível
    bGuardarComent.style.display = "block";
 
-   document.getElementById('areaComentario').value = ""; //Limpa textarea
-   document.getElementById('categoriaComentario').value = "none"; //Limpa select
-   document.getElementById('selectMember').value = "none"; //Limpa select
+   document.getElementById("areaComentario").value = ""; //Limpa textarea
+   document.getElementById("categoriaComentario").value = "none"; //Limpa select
+   document.getElementById("selectMember").value = "none"; //Limpa select
 
    modal.style.display = "block";
 
@@ -70,41 +69,41 @@ bGuardarComent.onclick = function () {
       categ_cell.innerText = categoriaComentario.value;
       member_cell.innerText = selectMember.value;
       btn_edit.innerHTML = "&#9998";
-      btn_edit.classList.add('edit_comment');
-      btn_edit.type = ("button");
+      btn_edit.classList.add("edit_comment");
+      btn_edit.type = "button";
       btn_delete_comment.innerHTML = "&times;";
-      btn_delete_comment.setAttribute('id','deleteComment');
-      btn_delete_comment.type = ("button");
+      btn_delete_comment.setAttribute("id", "deleteComment");
+      btn_delete_comment.type = "button";
+      btn_edit.classList.add("edit_comment");
+      btn_edit.type = "button";
 
       //Evento para guardar edição
       btn_edit.addEventListener("click", function () {
-
          //Botão de edição e Modal ficam visíveis
          bEditComment.style.display = "block";
          modal.style.display = "block";
 
-         document.getElementById('areaComentario').value = comentario_cell.innerText;
-         document.getElementById('categoriaComentario').value = categ_cell.innerText;
-         document.getElementById('selectMember').value = member_cell.innerText;
+         document.getElementById("areaComentario").value = comentario_cell.innerText;
+         document.getElementById("categoriaComentario").value = categ_cell.innerText;
+         document.getElementById("selectMember").value = member_cell.innerText;
 
-         document.getElementById("saveEdit").onclick = function() {
-
+         document.getElementById("saveEdit").onclick = function () {
             const updatedComment = [
-               document.getElementById('areaComentario').value,
-               document.getElementById('categoriaComentario').value,
-               document.getElementById('selectMember').value
+               document.getElementById("areaComentario").value,
+               document.getElementById("categoriaComentario").value,
+               document.getElementById("selectMember").value,
             ];
 
             let index = listComments.indexOf(newComment);
-            if(index !== -1){
-               listComments[index]=updatedComment;
+            if (index !== -1) {
+               listComments[index] = updatedComment;
             }
 
             // Atualiza o conteúdo da própria linha
             comentario_cell.innerText = updatedComment[0];
             categ_cell.innerText = updatedComment[1];
             member_cell.innerText = updatedComment[2];
-    
+
             // Esconde o Modal
             modal.style.display = "none";
 
@@ -115,29 +114,12 @@ bGuardarComent.onclick = function () {
       });
 
       //Evento para apagar comentário
-      btn_delete_comment.addEventListener("click", function(){
-
+      btn_delete_comment.addEventListener("click", function () {
          //Elimina no HTML
          this.parentNode.parentNode.remove();
-      
-         //Encontra o índice do comentário na lista de comentários
-         //Condição se existe ou não
-         let index = listComments.findIndex(comment => comment[0] === areaComentario.value && comment[1] === categoriaComentario.value && comment[2] === selectMember.value);
-         
-         console.log(index-1);
 
-         // Se o comentário for encontrado, remove da lista (index começa em 1)
-         if(index !== 0){
-            listComments.splice(index-1, 1);
-         }
-
-         //removeItem(listComments, this);
-
-         console.log(listComments);
-
+         removeItem(listComments, newComment);
       });
-
-
 
       //AppendChilds
       btn_edit_cell.appendChild(btn_edit);
@@ -154,7 +136,6 @@ bGuardarComent.onclick = function () {
       //Reset display dos botões para ficarem invisiveis
       bGuardarComent.style.display = "none";
       bEditComment.style.display = "none";
-
    } else alert("All the fields are required");
 };
 
@@ -219,7 +200,7 @@ const list_retro = JSON.parse(localStorage.getItem("retros"));
 
 //Grava toda a informação do formulário
 btn_saveSprint.addEventListener("click", function () {
-   if (title_sprint.value == "") {
+   if (title_sprint.value !== "") {
       if (listComments.length > 0) {
          let atual_date = new Date();
          atual_date = JSON.stringify(atual_date);
@@ -237,8 +218,8 @@ btn_saveSprint.addEventListener("click", function () {
          window.location.href = "retrospective.html";
 
          title_sprint.innerText = "";
-      } else alert("The Retrospective need to have a title.");
-   } else alert("Retrospective need to have comments.");
+      } else alert("Retrospective need to have comments.");
+   } else alert("The Retrospective need to have a title.");
 });
 
 //Default do tag form
@@ -271,5 +252,5 @@ let spanCloseWindow = document.getElementsByClassName("close")[0];
 //Ao clicar no (x), fecha a janela e abre a do histórico das retrospectivas
 spanCloseWindow.onclick = function () {
    console.log("Botão x fora clicado");
-   window.location.href="retrospective.html";
+   window.location.href = "retrospective.html";
 };

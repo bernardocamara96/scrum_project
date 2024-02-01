@@ -9,7 +9,7 @@ document.querySelector("#scrum_color").style.backgroundColor = localStorage.getI
 
 console.log(tasks);
 
-document.querySelector("#username").textContent = localStorage.getItem("username");
+document.querySelector("#user_task").textContent = localStorage.getItem("username");
 
 if (task.title != "") {
    title_txt.value = task.title;

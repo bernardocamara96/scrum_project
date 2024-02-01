@@ -49,6 +49,7 @@ header h1 {
 .taskMain {
    padding: 20px;
    margin-bottom: 55px;
+   padding-left: 0px;
 }
 
 .descricaoTarefa {
@@ -189,6 +190,40 @@ textarea {
 
 input::placeholder {
    color: rgb(14, 14, 14);
+}
+
+.menu_item {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-align: left;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   background-color: transparent;
+   border: transparent;
+   padding-left: 20px;
+   width: 88%;
+}
+#user_task {
+   background-color: rgb(237, 237, 237);
+   border-radius: 5px;
+}
+aside {
+   position: fixed;
+   margin-top: 35px;
+   flex-shrink: 0;
+   width: 270px;
+   background-color: rgb(217, 217, 217);
+   height: 755px;
+   z-index: 1;
+   color: rgb(14, 14, 14);
+   background-color: transparent;
+}
+
+#menu {
+   display: flex;
+   flex-direction: column;
+   margin-top: 5px;
+   margin-left: 8px;
 }
 
 #task_color {
