@@ -13,7 +13,7 @@ let modal = document.getElementById("myModal");
 let bOpenModal = document.getElementById("addComment");
 
 //Obter o <span> que fecha o Modal
-let span = document.getElementsByClassName("close")[0];
+let spanCloseModal = document.getElementsByClassName("close")[1];
 
 //Ao clicar no botão, abrir Modal
 bOpenModal.onclick = function () {
@@ -31,7 +31,7 @@ bOpenModal.onclick = function () {
 };
 
 //Ao clicar no (x), fechar Modal
-span.onclick = function () {
+spanCloseModal.onclick = function () {
    console.log("Botão x clicado");
    modal.style.display = "none";
    //Reset display dos botões para ficarem invisiveis
@@ -41,7 +41,7 @@ span.onclick = function () {
 
 let listComments = new Array();
 
-//Ao clicar no botão, escreve informação na tabela
+//Ao clicar no botão, grava informação correta no array, escreve informação na tabela
 bGuardarComent.onclick = function () {
    console.log("click guardar");
 
@@ -53,7 +53,9 @@ bGuardarComent.onclick = function () {
       const categ_cell = document.createElement("td");
       const member_cell = document.createElement("td");
       const btn_edit_cell = document.createElement("td");
+      const btn_delete_cell = document.createElement("td");
       const btn_edit = document.createElement("button");
+      const btn_delete_comment = document.createElement("button");
       const novaLinhaTab = document.createElement("tr");
 
       //Add novo comentário ao array
@@ -70,6 +72,9 @@ bGuardarComent.onclick = function () {
       btn_edit.innerHTML = "&#9998";
       btn_edit.classList.add('edit_comment');
       btn_edit.type = ("button");
+      btn_delete_comment.innerHTML = "&times;";
+      btn_delete_comment.setAttribute('id','deleteComment');
+      btn_delete_comment.type = ("button");
 
       //Evento para guardar edição
       btn_edit.addEventListener("click", function () {
@@ -109,13 +114,40 @@ bGuardarComent.onclick = function () {
          };
       });
 
+      //Evento para apagar comentário
+      btn_delete_comment.addEventListener("click", function(){
+
+         //Elimina no HTML
+         this.parentNode.parentNode.remove();
+      
+         //Encontra o índice do comentário na lista de comentários
+         //Condição se existe ou não
+         let index = listComments.findIndex(comment => comment[0] === areaComentario.value && comment[1] === categoriaComentario.value && comment[2] === selectMember.value);
+         
+         console.log(index-1);
+
+         // Se o comentário for encontrado, remove da lista (index começa em 1)
+         if(index !== 0){
+            listComments.splice(index-1, 1);
+         }
+
+         //removeItem(listComments, this);
+
+         console.log(listComments);
+
+      });
+
+
+
       //AppendChilds
       btn_edit_cell.appendChild(btn_edit);
+      btn_delete_cell.appendChild(btn_delete_comment);
 
       novaLinhaTab.appendChild(comentario_cell);
       novaLinhaTab.appendChild(categ_cell);
       novaLinhaTab.appendChild(member_cell);
       novaLinhaTab.appendChild(btn_edit_cell);
+      novaLinhaTab.appendChild(btn_delete_cell);
 
       document.getElementById("tabelaComentarios").appendChild(novaLinhaTab);
 
@@ -133,6 +165,7 @@ const members = [];
 
 const form = document.getElementById("formId");
 
+//Ação de adicionar membros ao array
 btn_addMember.addEventListener("click", function () {
    if (memberInput.value != "") {
       //Adiciona o membro à array
@@ -144,7 +177,7 @@ btn_addMember.addEventListener("click", function () {
       let listMembers = document.getElementById("listMembers");
       let selectMembers = document.getElementById("selectMember");
 
-      //Adiciona sempre o último
+      //Adiciona sempre o último adicionado
       //Lista
       let li = document.createElement("li");
       let close = document.createElement("span");
@@ -163,7 +196,7 @@ btn_addMember.addEventListener("click", function () {
       //Evento para poder eliminar
       close.addEventListener("click", function () {
          const line = li.textContent.slice(0, li.textContent.length - 2);
-         removeMember(members, line);
+         removeItem(members, line);
          li.remove();
          opt.remove();
       });
@@ -171,6 +204,7 @@ btn_addMember.addEventListener("click", function () {
       li.appendChild(close);
       listMembers.appendChild(li);
 
+      //Reset do input
       memberInput.value = "";
    } else {
       alert("Write a name");
@@ -183,6 +217,7 @@ const title_sprint = document.getElementById("titleSprint");
 const btn_saveSprint = document.getElementById("submitSprint");
 const list_retro = JSON.parse(localStorage.getItem("retros"));
 
+//Grava toda a informação do formulário
 btn_saveSprint.addEventListener("click", function () {
    if (title_sprint.value == "") {
       if (listComments.length > 0) {
@@ -206,6 +241,7 @@ btn_saveSprint.addEventListener("click", function () {
    } else alert("Retrospective need to have comments.");
 });
 
+//Default do tag form
 form.addEventListener("submit", function (e) {
    e.preventDefault;
 });
@@ -221,9 +257,19 @@ function letraCaps(word) {
    return capWord;
 }
 
-function removeMember(list, member) {
-   let index = list.indexOf(member);
+//Remove o item mencionado da lista
+function removeItem(list, item) {
+   let index = list.indexOf(item);
    if (index > -1) {
       list.splice(index, 1);
    }
 }
+
+//Obter o <span> que fecha a janela
+let spanCloseWindow = document.getElementsByClassName("close")[0];
+
+//Ao clicar no (x), fecha a janela e abre a do histórico das retrospectivas
+spanCloseWindow.onclick = function () {
+   console.log("Botão x fora clicado");
+   window.location.href="retrospective.html";
+};

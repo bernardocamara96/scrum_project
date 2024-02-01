@@ -37,6 +37,8 @@ header h1 {
 #listMembers {
    padding-top: 10px;
    padding-left: 30px;
+   overflow-y: auto;
+   max-height: 132px;
 }
 
 button {
@@ -95,7 +97,7 @@ footer p {
 
 #leftForm {
    flex: 1;
-   padding-right: 70px;
+   padding-right: 5%;
 }
 
 #leftForm label {
@@ -132,7 +134,7 @@ select,
 textarea {
    width: 100%;
    padding: 8px;
-   margin-bottom: 16px;
+   margin-bottom: 5%;
    box-sizing: border-box;
 }
 
@@ -173,14 +175,10 @@ td {
    width: 12%;
 }
 
-#addComment {
-   margin-bottom: 14px;
-}
-
 #footerForm {
    position: absolute;
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    align-items: flex-end;
    bottom: 0;
    right: 5%;
@@ -246,6 +244,10 @@ td {
 
 #guardarNovoComent{
    display: none;
+}
+
+#addComment{
+   margin-right: 5px;
 }
 
 #saveEdit{
