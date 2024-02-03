@@ -1,4 +1,10 @@
-document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
+document.querySelector("#body_color").style.backgroundColor = localStorage.getItem("background_color");
+
+// executa a função imediatamente
+writeDate();
+
+// executa a função em intervalos de 1 segundo para atualizar a data
+setInterval(writeDate, 1000);
 
 // js aside
 const username = localStorage.getItem("username");
@@ -9,7 +15,7 @@ document.querySelector("#logout").addEventListener("click", function () {
 });
 
 document.querySelector("#btn_sprint").addEventListener("click", function () {
-   window.location.href = "sprint_form.html";
+   window.location.href = "retro_form.html";
 });
 
 const retrospectiveList = JSON.parse(localStorage.getItem("retros"));
@@ -18,12 +24,11 @@ const table = document.querySelector("#table_body");
 for (let retro of retrospectiveList) {
    let row = document.createElement("tr");
    row.addEventListener("dblclick", function () {
-      document.querySelector("#modal_title").innerHTML = retro.data;
-      document.querySelector("#modal_description").innerHTML = retro.title;
       document.querySelector("#modal").style.visibility = "visible";
       document.querySelector("#background").style.visibility = "visible";
    });
    table.appendChild(row);
+
    let date = document.createElement("td");
    let title = document.createElement("td");
    date.innerText = retro.date;
@@ -84,12 +89,18 @@ document.querySelector("#btn_scrum").addEventListener("click", function () {
    window.location.href = "scrum.html";
 });
 
-document.querySelector("#modal_cancel").addEventListener("click", function () {
-   document.querySelector("#background").style.visibility = "hidden";
-   document.querySelector("#modal").style.visibility = "hidden";
-});
-
 document.querySelector("#background").addEventListener("click", function () {
    document.querySelector("#modal").style.visibility = "hidden";
    document.querySelector("#background").style.visibility = "hidden";
 });
+
+function writeDate() {
+   const d = new Date();
+
+   // define o formato a mostrar
+   let dateTimeString = d.toLocaleString("en-GB");
+   dateTimeString = dateTimeString.replace(",", "&nbsp; &nbsp; &nbsp;");
+
+   // insere no HTML
+   document.getElementById("date").innerHTML = dateTimeString;
+}

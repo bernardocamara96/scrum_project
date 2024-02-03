@@ -3,9 +3,13 @@ document.querySelector("#user").textContent = username;
 const tasks = JSON.parse(localStorage.getItem("tasks"));
 const retros = JSON.parse(localStorage.getItem("retros"));
 
-console.log(tasks);
-console.log(retros);
 printTasks(tasks);
+
+// executa a função imediatamente
+writeDate();
+
+// executa a função em intervalos de 1 segundo para atualizar a data
+setInterval(writeDate, 1000);
 
 document.querySelector("#logout").addEventListener("click", function () {
    localStorage.setItem("username", "");
@@ -62,52 +66,7 @@ document.querySelector("#btn_settings").addEventListener("click", function () {
    document.querySelector("#background").style.visibility = "visible";
 });
 
-function printTasks(tasks) {
-   for (let i = 0; i < tasks.length; i++) {
-      const task_div = document.createElement("div");
-      task_div.id = tasks[i].id;
-      task_div.classList.add("task");
-      taskCreationAddEvents(task_div);
-      task_div.setAttribute("draggable", "true");
-      task_div.style.backgroundColor = tasks[i].color;
-      task_div.style.color = fontColor(tasks[i].color);
-
-      const task_title = document.createElement("div");
-      task_title.classList.add("task_title");
-      task_title.textContent = tasks[i].title;
-
-      task_div.appendChild(task_title);
-      const task_btn = document.createElement("button");
-      task_btn.innerHTML = "&#9998;";
-      task_btn.classList.add("task_btn");
-      task_btn.style.color = fontColor(tasks[i].color);
-
-      task_btn.addEventListener("mouseenter", function () {
-         const color = hexToRGB(tasks[i].color, -15, -15, -15);
-         this.style.backgroundColor = color;
-      });
-
-      task_btn.addEventListener("mouseleave", function () {
-         this.style.backgroundColor = tasks[i].color;
-      });
-
-      task_btn.addEventListener("mousedown", function () {
-         const color = hexToRGB(tasks[i].color, -30, -30, -30);
-
-         this.style.backgroundColor = color;
-      });
-      task_div.appendChild(task_btn);
-
-      if (tasks[i].column == "list1") {
-         document.querySelector("#list1").appendChild(task_div);
-      } else if (tasks[i].column == "list2") {
-         document.querySelector("#list2").appendChild(task_div);
-      } else if (tasks[i].column == "list3") {
-         document.querySelector("#list3").appendChild(task_div);
-      }
-   }
-}
-
+const delete_btns = document.querySelectorAll(".delete_btn");
 const buttons = document.querySelectorAll(".task_btn");
 
 for (let btn of buttons) {
@@ -123,6 +82,62 @@ for (let btn of buttons) {
       }
       window.location.href = "task.html";
    });
+}
+
+for (let btn of delete_btns) {
+   btn.addEventListener("click", function () {
+      if (confirm("Are you sure you want to delete this task?")) {
+         for (let i = 0; i < tasks.length; i++) {
+            if (tasks[i].id == this.parentNode.id) {
+               tasks.splice(i, 1);
+               localStorage.setItem("tasks", JSON.stringify(tasks));
+               this.parentNode.remove();
+            }
+         }
+      }
+   });
+}
+
+function printTasks(tasks) {
+   for (let i = 0; i < tasks.length; i++) {
+      const task_div = document.createElement("div");
+      task_div.id = tasks[i].id;
+      task_div.classList.add("task");
+      taskCreationAddEvents(task_div);
+      task_div.setAttribute("draggable", "true");
+      task_div.style.backgroundColor = tasks[i].color;
+      task_div.style.color = fontColor(tasks[i].color);
+
+      const task_title = document.createElement("div");
+      task_title.classList.add("task_title");
+      task_title.textContent = tasks[i].title;
+      task_div.appendChild(task_title);
+
+      const task_btn = document.createElement("button");
+      task_btn.innerHTML = "&#9998;";
+      task_btn.classList.add("task_btn");
+      task_btn.style.color = fontColor(tasks[i].color);
+
+      addEventsBeforeDrag(task_btn, task_div);
+
+      const task_btnDelete = document.createElement("button");
+      task_btnDelete.innerHTML = "&#128465;";
+      task_btnDelete.classList.add("delete_btn");
+      task_btnDelete.style.color = fontColor(tasks[i].color);
+
+      addEventsBeforeDrag(task_btnDelete, task_div);
+
+      task_div.appendChild(task_btnDelete);
+      task_div.appendChild(task_btn);
+
+      if (tasks[i].column == "list1") {
+         document.querySelector("#list1").appendChild(task_div);
+      } else if (tasks[i].column == "list2") {
+         document.querySelector("#list2").appendChild(task_div);
+      } else if (tasks[i].column == "list3") {
+         document.querySelector("#list3").appendChild(task_div);
+      }
+   }
 }
 
 function taskCreationAddEvents(task_div) {
@@ -154,28 +169,74 @@ function taskCreationAddEvents(task_div) {
       }
 
       task_div.classList.remove("drag");
+
       task_div.style.backgroundColor = localStorage.getItem("drag_backgroundColor");
-      task_div.style.color = "#0e0e0e";
+      task_div.style.color = fontColorRGB(localStorage.getItem("drag_backgroundColor"));
    });
 
    task_div.addEventListener("mouseenter", function () {
       task_div.childNodes[1].style.visibility = "visible";
+      task_div.childNodes[2].style.visibility = "visible";
    });
    task_div.addEventListener("mouseleave", function () {
       task_div.childNodes[1].style.visibility = "hidden";
+      task_div.childNodes[2].style.visibility = "hidden";
    });
+}
+
+function addEventsBeforeDrag(btn, task_div) {
+   btn.addEventListener("mouseenter", function () {
+      for (let task of tasks) {
+         if (task_div.id == task.id) {
+            const color = hexToRGB(task.color, -15, -15, -15);
+            btn.style.backgroundColor = color;
+         }
+      }
+   });
+
+   btn.addEventListener("mouseleave", function () {
+      for (let task of tasks) {
+         if (task_div.id == task.id) {
+            btn.style.backgroundColor = task.color;
+         }
+      }
+   });
+
+   btn.addEventListener("mousedown", function () {
+      for (let task of tasks) {
+         console.log(task);
+         if (task_div.id == task.id) {
+            const color = hexToRGB(task.color, -30, -30, -30);
+            this.style.backgroundColor = color;
+         }
+      }
+   });
+}
+
+// Função data e relógio
+
+function writeDate() {
+   const d = new Date();
+
+   // define o formato a mostrar
+   let dateTimeString = d.toLocaleString("en-GB");
+   dateTimeString = dateTimeString.replace(",", "&nbsp; &nbsp; &nbsp;");
+
+   // insere no HTML
+   document.getElementById("date").innerHTML = dateTimeString;
 }
 
 //////COLORS///////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 document.querySelector("#apply").addEventListener("click", function () {
    const background_color = document.querySelector("#background_color").value;
    const toDo_color = document.querySelector("#toDo_color").value;
    const doing_color = document.querySelector("#doing_color").value;
    const done_color = document.querySelector("#done_color").value;
 
-   document.querySelector("#scrum_color").style.backgroundColor = background_color;
+   document.querySelector("#body_color").style.backgroundColor = background_color;
    document.querySelector("#column1").style.backgroundColor = toDo_color;
    document.querySelector("#column2").style.backgroundColor = doing_color;
    document.querySelector("#column3").style.backgroundColor = done_color;
@@ -210,7 +271,7 @@ document.querySelector("#apply").addEventListener("click", function () {
    document.querySelector("#modal_settings").style.visibility = "hidden";
 });
 
-document.querySelector("#scrum_color").style.backgroundColor = localStorage.getItem("background_color");
+document.querySelector("#body_color").style.backgroundColor = localStorage.getItem("background_color");
 document.querySelector("#column1").style.backgroundColor = localStorage.getItem("toDo_color");
 document.querySelector("#column2").style.backgroundColor = localStorage.getItem("doing_color");
 document.querySelector("#column3").style.backgroundColor = localStorage.getItem("done_color");
@@ -255,7 +316,7 @@ document.querySelector("#reset_settings").addEventListener("click", function () 
    document.querySelector("#column2").style.backgroundColor = "#f1f2f4";
    document.querySelector("#column3").style.backgroundColor = "#f1f2f4";
    document.querySelector("#btn_task").style.backgroundColor = "#f1f2f4";
-   document.querySelector("#scrum_color").style.backgroundColor = "#172b4c";
+   document.querySelector("#body_color").style.backgroundColor = "#172b4c";
    document.querySelector("#column1 .title").style.color = fontColor("#f1f2f4");
    document.querySelector("#column2 .title").style.color = fontColor("#f1f2f4");
    document.querySelector("#column3 .title").style.color = fontColor("#f1f2f4");
@@ -314,4 +375,40 @@ function fontColor(color) {
    } else {
       return "rgb(250, 250, 250)";
    }
+}
+
+function fontColorRGB(color) {
+   var colorsOnly = color.split(")"); //gives "rgba(111,222,333,0.5" at index 0
+
+   var colorsOnly = colorsOnly[0].split("("); //gives "111,222,333,0.5 at index 1
+
+   var colorsOnly = colorsOnly[1].split(",");
+
+   var red = colorsOnly[0].split(",");
+   var green = colorsOnly[1].split(",");
+   var blue = colorsOnly[2].split(",");
+
+   if (red * 0.299 + green * 0.587 + blue * 0.114 > 186) {
+      return "rgb(14, 14, 14)";
+   } else {
+      return "rgb(250, 250, 250)";
+   }
+}
+
+function rgbColor(color, redChange, greenChange, blueChange) {
+   var colorsOnly = color.split(")"); //gives "rgba(111,222,333,0.5" at index 0
+   var colorsOnly = colorsOnly[0].split("("); //gives "111,222,333,0.5 at index 1
+   var colorsOnly = colorsOnly[1].split(",");
+
+   var red = parseInt(colorsOnly[0].split(","));
+   var green = parseInt(colorsOnly[1].split(","));
+   var blue = parseInt(colorsOnly[2].split(","));
+
+   red = red + redChange;
+   green = green + greenChange;
+   blue = blue + blueChange;
+
+   const colorRGB = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+   return colorRGB;
 }

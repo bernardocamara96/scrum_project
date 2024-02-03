@@ -1,98 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Retrospectives</title>
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <div id="background"></div>
-    <div class="body_color" id="scrum_color"></div>
-    <div class="aside_color"></div>
-    <!--<header><h1>Scrum Board</h1></header> -->
-    <main id="scrum_main">
-      <header><h1>Scrum Board</h1></header>
-      <section id="scrum_section">
-        <aside>
-          <div id="menu">
-            <p class="menu_item" id="user">Username</p>
-            <button class="menu_item" id="logout">Logout</button>
-            <button class="menu_item" id="btn_sprint">
-              + New Retrospective
-            </button>
-            <button class="menu_item" id="btn_scrum">Your Scrum Board</button>
-            <!-- botao settings desativado para já
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Retrospectives</title>
+      <link rel="icon" href="scrum_image.png" />
+      <link rel="stylesheet" href="main.css" />
+   </head>
+   <body>
+      <div id="background"></div>
+      <div id="body_color"></div>
+      <div id="aside_color"></div>
+      <!--<header><h1>Scrum Board</h1></header> -->
+      <main id="scrum_main">
+         <header>
+            <h1><img src="scrum_image.png" id="scrum_img" alt="App logo" />&nbsp;AgileUp</h1>
+         </header>
+         <section id="scrum_section">
+            <aside>
+               <div id="menu">
+                  <p class="menu_item" id="user_name">
+                     <img id="user_img" src="user.png" alt="User logo" /><span id="user">Username</span>
+                  </p>
+                  <button class="menu_item" id="logout">Logout</button>
+                  <div class="menu_item" id="date"></div>
+                  <button class="menu_item" id="btn_sprint">+ New Retrospective</button>
+                  <button class="menu_item" id="btn_scrum">Your Scrum Board</button>
+                  <!-- botao settings desativado para já
             
             
             <button class="menu_item" id="btn_settings">
               &#9881; Settings
             </button>
         -->
-          </div>
-        </aside>
-       
-       
-          <section id="retrospective_list">
-            <div id="retrospective_title"><h1>Retrospectives</h1></div>
-            <table id="retrospective_table">
-              <thead>
-                <tr>
-                  <th id="date_col">Date</th>
-                  <th id="title_col">Title</th>
-                </tr>
-              </thead>
-              <tbody id="table_body">
-                <!-- rows to be added here -->
-              </tbody>
-            </table>
-          </section>
-        </div>
+               </div>
+            </aside>
 
-        <section class="modal" id="modal1">
-          <div id="modal_header">
-             <div id="title_div">
-                 <label for="title_modal">Title:</label>
-                 <span id="title_modal"></span>
-             </div>
-             <div id="date_div">
-               <label for="date_modal">Date:</label>
-               <span id="date_modal"></span>
-             </div>
-             <div id="cancel_retrospectives">&times;</div>
-          </div>
-         
-          <div id="main_modal">
-             <div id="members_section">
-                 <label for="list_members">Members:</label>
-                 <div id="list_members">
-                 </div>
-             </div>
-             <div id="comments_section">
-                 <label for="table_comments" id="label_comments">Comments:</label>
-                 <div id="table_container">
-                <table id="table_comments">
+            <section id="retrospective_list">
+               <div id="retrospective_title"><h2>Retrospectives</h2></div>
+               <table id="retrospective_table">
                   <thead>
-                    <tr>
-                      <th id="comment_id">Comment</th>
-                      <th id="type_id">Type</th>
-                      <th id="author_id">Author</th>
-                    </tr>
+                     <tr>
+                        <th id="date_col">Date</th>
+                        <th id="title_col">Title</th>
+                     </tr>
                   </thead>
-                  <tbody id="body_comments">
-                   
-                    
+                  <tbody id="table_body">
+                     <!-- rows to be added here -->
                   </tbody>
-                </table>
-              </div>
-             </div>
-         </div>
-           
-        </section>
-      </section>
-    </main>
+               </table>
+            </section>
 
-    <!-- CODIGO MODAL CORES (USAR PRA MODAL DE CONSTRUIR RETRO)
+            <section class="modal" id="modal1">
+               <div class="modal_exit" id="cancel_retrospectives">&times;</div>
+               <div id="modal_header">
+                  <div id="title_div">
+                     <label>Title:</label>
+                     <span id="title_modal"></span>
+                  </div>
+                  <div id="date_div">
+                     <label>Date:</label>
+                     <span id="date_modal"></span>
+                  </div>
+               </div>
+
+               <div id="main_modal">
+                  <div id="members_section">
+                     <label id="label_members">Members:</label>
+                     <div id="list_members"></div>
+                  </div>
+                  <div id="comments_section">
+                     <label id="label_comments">Comments:</label>
+                     <div id="table_container">
+                        <table id="table_comments">
+                           <thead>
+                              <tr>
+                                 <th id="comment_id">Comment</th>
+                                 <th id="type_id">Type</th>
+                                 <th id="author_id">Author</th>
+                              </tr>
+                           </thead>
+                           <tbody id="body_comments"></tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </section>
+      </main>
+
+      <!-- CODIGO MODAL CORES (USAR PRA MODAL DE CONSTRUIR RETRO)
 
 
       <section class="modal" id="modal">
@@ -129,11 +126,16 @@
       </section>
     -->
 
-    <footer>
-      <div>
-        <p id="footer">© Acertar o Rumo 2024</p>
-      </div>
-    </footer>
-  </body>
-  <script src="retrospective.js"></script>
+      <footer>
+         <div>Powered by:</div>
+         <ul>
+            <li>Bernardo Câmara</li>
+            <li>Cesar Temudo</li>
+            <li>Daniel Silva</li>
+         </ul>
+         <br />
+         <p>© Acertar o Rumo 2024</p>
+      </footer>
+      <script src="retrospective.js"></script>
+   </body>
 </html>
