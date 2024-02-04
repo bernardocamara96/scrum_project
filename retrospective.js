@@ -1,12 +1,10 @@
 document.querySelector("#body_color").style.backgroundColor = localStorage.getItem("background_color");
 
-// executa a função imediatamente
 writeDate();
 
-// executa a função em intervalos de 1 segundo para atualizar a data
+// Executa a função em intervalos de 1 segundo para atualizar a data
 setInterval(writeDate, 1000);
 
-// js aside
 const username = localStorage.getItem("username");
 document.querySelector("#user").textContent = username;
 
@@ -21,6 +19,9 @@ document.querySelector("#btn_sprint").addEventListener("click", function () {
 const retrospectiveList = JSON.parse(localStorage.getItem("retros"));
 
 const table = document.querySelector("#table_body");
+
+/*Ciclo for que imprime todas as informações referentes a todas as retrospetivas na tabela e adiciona o evento de 
+de duplo click que mostra a modal que contém todas as informações referentes a essa retrospetiva em específico*/
 for (let retro of retrospectiveList) {
    let row = document.createElement("tr");
    row.addEventListener("dblclick", function () {
@@ -72,35 +73,37 @@ for (let retro of retrospectiveList) {
    });
 }
 
+/*Adiciona o evento ao botão de fecho da modal, que faz fechar a modal que contém as informações da retrospetiva.
+Ao fechar a modal são removidas todas as linhas da tabela e todos os membros da div #list_members*/
 document.querySelector("#cancel_retrospectives").addEventListener("click", function () {
    document.querySelector("#modal1").style.visibility = "hidden";
    document.querySelector("#background").style.visibility = "hidden";
-   document.querySelector("#body_comments tr").remove();
+   document.querySelector("#body_comments").innerHTML = "";
    document.querySelector("#list_members").innerHTML = "";
 });
 
+/*Adiciona o evento ao backround a preto que aparece à volta da modal, que faz fechar a modal que contém as informações da retrospetiva.
+Ao fechar a modal são removidas todas as linhas da tabela e todos os membros da div #list_members*/
 document.querySelector("#background").addEventListener("click", function () {
    document.querySelector("#modal1").style.visibility = "hidden";
    document.querySelector("#background").style.visibility = "hidden";
-   document.querySelector("#body_comments tr").remove();
+   document.querySelector("#body_comments").innerHTML = "";
    document.querySelector("#list_members").innerHTML = "";
 });
+
+//Evento para direcionar o user para a página principal da aplicação
 document.querySelector("#btn_scrum").addEventListener("click", function () {
    window.location.href = "scrum.html";
 });
 
-document.querySelector("#background").addEventListener("click", function () {
-   document.querySelector("#modal").style.visibility = "hidden";
-   document.querySelector("#background").style.visibility = "hidden";
-});
-
+//Função para escrever a data
 function writeDate() {
    const d = new Date();
 
-   // define o formato a mostrar
+   // Define o formato a mostrar
    let dateTimeString = d.toLocaleString("en-GB");
    dateTimeString = dateTimeString.replace(",", "&nbsp; &nbsp; &nbsp;");
 
-   // insere no HTML
+   // Insere no HTML
    document.getElementById("date").innerHTML = dateTimeString;
 }

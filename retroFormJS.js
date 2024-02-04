@@ -1,10 +1,9 @@
 document.querySelector("#body_color").style.backgroundColor = localStorage.getItem("background_color");
 document.querySelector("#user").textContent = localStorage.getItem("username");
 
-// executa a função imediatamente
 writeDate();
 
-// executa a função em intervalos de 1 segundo para atualizar a data
+// Executa a função em intervalos de 1 segundo para atualizar a data
 setInterval(writeDate, 1000);
 
 //Botão que guarda novo comentário
@@ -34,8 +33,6 @@ bOpenModal.onclick = function () {
    document.getElementById("selectMember").value = "none"; //Limpa select
 
    modal.style.display = "block";
-
-   console.log(listComments);
 };
 
 //Ao clicar no (x), fechar Modal
@@ -53,8 +50,6 @@ let listComments = new Array();
 
 //Ao clicar no botão, grava informação correta no array, escreve informação na tabela
 bGuardarComent.onclick = function () {
-   console.log("click guardar");
-
    if (categoriaComentario.value != "none" && selectMember.value != "none" && areaComentario.value != "") {
       //Esconde Modal
       modal.style.display = "none";
@@ -73,8 +68,6 @@ bGuardarComent.onclick = function () {
       const newComment = [areaComentario.value, categoriaComentario.value, selectMember.value];
 
       listComments.push(newComment);
-
-      console.log(listComments);
 
       //Adicionar na tabela
       comentario_cell.innerText = areaComentario.value;
@@ -176,8 +169,6 @@ btn_addMember.addEventListener("click", function () {
       //Adiciona o membro à array
       members.push(letraCaps(memberInput.value));
 
-      console.log(members);
-
       //Mostrar Membros
       let listMembers = document.getElementById("listMembers");
       let selectMembers = document.getElementById("selectMember");
@@ -188,7 +179,7 @@ btn_addMember.addEventListener("click", function () {
       let close = document.createElement("span");
       li.setAttribute("id", letraCaps(memberInput.value));
       li.innerText = members[members.length - 1];
-      //icon close
+      //Icon close
       close.classList.add("closeIcon");
       close.innerText = " " + "\u00D7";
 
@@ -302,13 +293,14 @@ function confirmExit() {
    return confirm("Are you sure you want to exit without saving first?");
 }
 
+//Função para escrever a data
 function writeDate() {
    const d = new Date();
 
-   // define o formato a mostrar
+   // Define o formato a mostrar
    let dateTimeString = d.toLocaleString("en-GB");
    dateTimeString = dateTimeString.replace(",", "&nbsp; &nbsp; &nbsp;");
 
-   // insere no HTML
+   // Insere no HTML
    document.getElementById("date").innerHTML = dateTimeString;
 }
