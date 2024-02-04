@@ -1,7 +1,7 @@
 const username = localStorage.getItem("username");
 document.querySelector("#user").textContent = username;
-const tasks = JSON.parse(localStorage.getItem("tasks") || []);
-const retros = JSON.parse(localStorage.getItem("retros") || []);
+const tasks = JSON.parse(localStorage.getItem("tasks"));
+const retros = JSON.parse(localStorage.getItem("retros"));
 
 printTasks(tasks);
 
